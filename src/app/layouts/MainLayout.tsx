@@ -1,9 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import { BottomTabNavigator } from '../../shared/ui';
+import { BottomTabNavigator, HeaderTest } from '../../shared/ui';
 
 export const MainLayout = () => {
     return (
         <main>
+            <HeaderTest />
             <Outlet />
             <BottomTabNavigator />
         </main>
