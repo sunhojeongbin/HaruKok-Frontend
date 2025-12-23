@@ -1,11 +1,11 @@
-import { Header } from '../../../shared/ui';
 import { EmailLoginForm } from '../../../features/email-login/ui/EmailLoginForm';
+import { SubHeader } from '../../../shared/ui';
 
 export const EmailLoginPage = () => {
-    return (
-        <div className='flex flex-col items-center pt-18'>
-            <Header onBackClick={() => window.history.back()}>이메일 로그인</Header>
-            <EmailLoginForm />
-        </div>
-    );
+  return (
+    <div className='flex flex-col p-4'>
+      <SubHeader>이메일 로그인</SubHeader>
+      <EmailLoginForm />
+    </div>
+  );
 };

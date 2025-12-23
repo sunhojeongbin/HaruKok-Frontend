@@ -1,7 +1,9 @@
 export { BottomTabNavigator } from './BottomTabNavigator';
 export { Button } from './Button';
-export { Header } from './Header';
+export { Calendar } from './Calendar';
+export { Icon } from './Icon';
+export { IconButton } from './IconButton';
 export { Input } from './Input';
 export { Label } from './Label';
-// export { MainHeader } from './MainHeader';
-export { HeaderTest } from './MainHeader';
+export { MainHeader } from './MainHeader';
+export { SubHeader } from './SubHeader';
