@@ -1,12 +1,12 @@
 interface ILabelProps {
-    children: React.ReactNode;
-    htmlFor?: string;
+  children: React.ReactNode;
+  htmlFor?: string;
 }
 
 export const Label = ({ children, htmlFor }: ILabelProps) => {
-    return (
-        <label htmlFor={htmlFor} className='block mb-2 text-[#313131] text-left'>
-            {children}
-        </label>
-    );
+  return (
+    <label htmlFor={htmlFor} className='block text-left mb-2 text-sm'>
+      {children}
+    </label>
+  );
 };
