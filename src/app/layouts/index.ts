@@ -1,2 +1,3 @@
-export { BaseLayout } from './BaseLayout';
+export { AppLayout } from './AppLayout';
 export { MainLayout } from './MainLayout';
+export { SubLayout } from './SubLayout';

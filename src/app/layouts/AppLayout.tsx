@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
 
-export const BaseLayout = () => {
+export const AppLayout = () => {
   return (
-    <div>
+    <div className='px-4'>
       <Outlet />
     </div>
   );

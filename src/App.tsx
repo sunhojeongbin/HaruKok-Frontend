@@ -1,22 +1,24 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { BaseLayout, MainLayout } from './app/layouts';
+import { AppLayout, MainLayout, SubLayout } from './app/layouts';
 import { LoginPage } from './pages/login/ui/LoginPage';
-import { EmailLoginPage } from './pages/email-login/ui/EmailLoginPage';
 import { TodoPage } from './pages/todo/ui/TodoPage';
-import { MyPage } from './pages/my/ui/MyPage';
+import { ProfilePage } from './pages/profile/ui/ProfilePage';
+import { EmailLoginPage } from './pages/email-login/ui/EmailLoginPage';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<BaseLayout />}>
+        <Route element={<AppLayout />}>
           <Route path='/' element={<LoginPage />} />
-          <Route path='/login/email' element={<EmailLoginPage />} />
-        </Route>
-        <Route element={<MainLayout />}>
-          <Route path='/todo' element={<TodoPage />} />
-          <Route path='/my' element={<MyPage />} />
+          <Route element={<MainLayout />}>
+            <Route path='/todo' element={<TodoPage />} />
+            <Route path='/profile' element={<ProfilePage />} />
+          </Route>
+          <Route element={<SubLayout />}>
+            <Route path='/login/email' element={<EmailLoginPage />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
