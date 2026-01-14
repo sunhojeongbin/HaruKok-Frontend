@@ -7,7 +7,7 @@ interface IIconProps {
   size?: number;
 }
 
-export const Icon = ({ name, size }: IIconProps) => {
+export const Icon = ({ name, size = 24 }: IIconProps) => {
   const Svg = icons[name];
 
   return <Svg width={size} height={size} />;
