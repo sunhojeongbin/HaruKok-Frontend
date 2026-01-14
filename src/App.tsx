@@ -5,6 +5,7 @@ import { LoginPage } from './pages/login/ui/LoginPage';
 import { TodoPage } from './pages/todo/ui/TodoPage';
 import { ProfilePage } from './pages/profile/ui/ProfilePage';
 import { EmailLoginPage } from './pages/email-login/ui/EmailLoginPage';
+import { EmailSignupPage } from './pages/email-signup/ui/EmailSignupPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           </Route>
           <Route element={<SubLayout />}>
             <Route path='/login/email' element={<EmailLoginPage />} />
+            <Route path='/signup/email' element={<EmailSignupPage />} />
           </Route>
         </Route>
       </Routes>
