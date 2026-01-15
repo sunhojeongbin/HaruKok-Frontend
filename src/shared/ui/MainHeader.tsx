@@ -5,15 +5,22 @@ import { IconButton } from './IconButton';
 export const MainHeader = () => {
   const location = useLocation();
 
-  return location.pathname.startsWith('/my') ? (
-    <header className='flex justify-end p-4 bg-white'>
-      <IconButton icon='Settings' onClick={() => {}} />
-    </header>
-  ) : (
-    <header className='flex justify-end gap-4 p-4 bg-[#f3f4f6]'>
-      <IconButton icon='Search' onClick={() => {}} />
-      <IconButton icon='Notification' onClick={() => {}} />
-      <IconButton icon='Management' onClick={() => {}} />
+  // 현재 경로가 프로필 페이지인지 확인
+  const isProfilePage = location.pathname.startsWith('/profile');
+
+  return (
+    <header
+      className={`flex h-14 items-center justify-end gap-4 px-4 ${isProfilePage ? 'bg-white' : 'bg-[#f3f4f6]'}`}
+    >
+      {isProfilePage ? (
+        <IconButton icon='Settings' onClick={() => {}} />
+      ) : (
+        <>
+          <IconButton icon='Search' onClick={() => {}} />
+          <IconButton icon='Notification' onClick={() => {}} />
+          <IconButton icon='Management' onClick={() => {}} />
+        </>
+      )}
     </header>
   );
 };
