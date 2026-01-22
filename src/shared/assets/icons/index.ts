@@ -3,6 +3,8 @@ import ArrowLeft from './arrow-left.svg?react';
 import ArrowRight from './arrow-right.svg?react';
 import ArrowUp from './arrow-up.svg?react';
 import Calendar from './calendar.svg?react';
+import CheckCircle from './check-circle.svg?react';
+import Circle from './circle.svg?react';
 import Home from './home.svg?react';
 import Management from './management.svg?react';
 import Notification from './notification.svg?react';
@@ -17,6 +19,8 @@ export {
   ArrowRight,
   ArrowUp,
   Calendar,
+  CheckCircle,
+  Circle,
   Home,
   Management,
   Notification,
