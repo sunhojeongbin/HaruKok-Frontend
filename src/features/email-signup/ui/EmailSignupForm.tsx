@@ -14,10 +14,10 @@ export const EmailSignupForm = () => {
         </div>
         <div>
           <Label htmlFor='name'>이름</Label>
-          <Input type='name' id='name' placeholder='이름을 입력해 주세요.' />
+          <Input id='name' placeholder='이름을 입력해 주세요.' />
         </div>
       </div>
-      <Button onClick={() => {}}>회원가입</Button>
+      <Button type='submit'>회원가입</Button>
     </form>
   );
 };
