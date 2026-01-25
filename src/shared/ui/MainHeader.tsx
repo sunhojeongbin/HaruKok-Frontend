@@ -10,7 +10,7 @@ export const MainHeader = () => {
 
   return (
     <header
-      className={`flex h-14 items-center justify-end gap-4 px-4 ${isProfilePage ? 'bg-white' : 'bg-[#f3f4f6]'}`}
+      className={`flex h-14 shrink-0 items-center justify-end gap-4 px-4 ${isProfilePage ? 'bg-white' : 'bg-[#f3f4f6]'}`}
     >
       {isProfilePage ? (
         <IconButton icon='Settings' onClick={() => {}} />
