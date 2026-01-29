@@ -1,8 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { AppLayout, MainLayout, SubLayout } from './app/layouts';
+
 import { LoginPage } from './pages/login/ui/LoginPage';
 import { TodoPage } from './pages/todo/ui/TodoPage';
+import { CalendarPage } from './pages/calendar/ui/CalendarPage';
 import { ProfilePage } from './pages/profile/ui/ProfilePage';
 import { EmailLoginPage } from './pages/email-login/ui/EmailLoginPage';
 import { EmailSignupPage } from './pages/email-signup/ui/EmailSignupPage';
@@ -15,6 +17,7 @@ function App() {
           <Route path='/' element={<LoginPage />} />
           <Route element={<MainLayout />}>
             <Route path='/todo' element={<TodoPage />} />
+            <Route path='/calendar' element={<CalendarPage />} />
             <Route path='/profile' element={<ProfilePage />} />
           </Route>
           <Route element={<SubLayout />}>
