@@ -5,10 +5,11 @@ export type TIconName = keyof typeof icons;
 interface IIconProps {
   name: TIconName;
   size?: number;
+  color?: string;
 }
 
-export const Icon = ({ name, size = 24 }: IIconProps) => {
+export const Icon = ({ name, size = 24, color }: IIconProps) => {
   const Svg = icons[name];
 
-  return <Svg width={size} height={size} />;
+  return <Svg width={size} height={size} style={{ color }} />;
 };
