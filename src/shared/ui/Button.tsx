@@ -12,7 +12,7 @@ export const Button = ({ children, type = 'button', variant = 'solid', onClick }
   const buttonClasses = {
     root: 'h-12 w-full rounded-lg font-medium',
     solid: 'bg-[#aad1f0] text-[#ffffff]',
-    filled: 'bg-[rgba(170,209,240,0.2)] text-[#aad1f0]',
+    filled: 'bg-[#aad1f033] text-[#aad1f0]',
   };
 
   return (
