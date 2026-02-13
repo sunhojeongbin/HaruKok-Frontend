@@ -1,11 +1,11 @@
-import { SubHeader } from '../../../shared/ui';
+import { SubLayout } from '../../../app/layouts';
+
 import { EmailLoginForm } from '../../../features/email-login/ui/EmailLoginForm';
 
 export const EmailLoginPage = () => {
   return (
-    <div className='px-4'>
-      <SubHeader>이메일 로그인</SubHeader>
+    <SubLayout title='이메일 로그인'>
       <EmailLoginForm />
-    </div>
+    </SubLayout>
   );
 };
