@@ -7,7 +7,7 @@ export const TodoPage = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
   return (
-    <div className='flex min-h-full flex-col gap-4 bg-[#f3f4f6] px-4 pb-4'>
+    <div className='flex min-h-full flex-col gap-4 bg-[#f3f4f6] px-4 pb-22'>
       <Calendar onDateSelect={setSelectedDate} />
       <TodoList selectedDate={selectedDate} />
     </div>
