@@ -14,6 +14,7 @@ import Plus from './plus.svg?react';
 import Profile from './profile.svg?react';
 import Search from './search.svg?react';
 import Settings from './settings.svg?react';
+import XCircle from './x-circle.svg?react';
 import X from './x.svg?react';
 
 export {
@@ -33,5 +34,6 @@ export {
   Profile,
   Search,
   Settings,
+  XCircle,
   X,
 };
