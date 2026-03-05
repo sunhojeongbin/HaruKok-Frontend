@@ -1,13 +1,20 @@
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M2 10.6993C2 10.0369 2.53694 9.5 3.19929 9.5H20.8007C21.4631 9.5 22 10.0369 22 10.6993V17.2028C22 19.8522 19.8522 22 17.2028 22H6.79718C4.14777 22 2 19.8522 2 17.2028V10.6993Z" fill="currentColor"/>
-<path d="M2 7.14428C2 7.64877 2.40897 8.05774 2.91346 8.05774H21.0865C21.591 8.05774 22 7.64877 22 7.14428V7.14428C22 5.12631 20.3641 3.49043 18.3462 3.49043H5.65384C3.63588 3.49043 2 5.12631 2 7.14428V7.14428Z" fill="currentColor"/>
-<ellipse cx="11.9749" cy="13.0096" rx="1.13065" ry="1.10577" fill="white"/>
-<ellipse cx="7.95483" cy="13.0096" rx="1.1809" ry="1.10577" fill="white"/>
-<ellipse cx="7.95483" cy="16.6634" rx="1.1809" ry="1.10577" fill="white"/>
-<ellipse cx="15.9949" cy="16.6634" rx="1.1809" ry="1.10577" fill="white"/>
-<ellipse cx="15.9949" cy="13.0096" rx="1.1809" ry="1.10577" fill="white"/>
-<ellipse cx="11.9749" cy="16.6634" rx="1.13065" ry="1.10577" fill="white"/>
-<line x1="8.1652" y1="2.98942" x2="8.1652" y2="3.65481" stroke="currentColor" stroke-width="1.97884" stroke-linecap="round"/>
-<line x1="8.11515" y1="2.98942" x2="8.11515" y2="3.65481" stroke="currentColor" stroke-width="1.97884" stroke-linecap="round"/>
-<line x1="0.989418" y1="-0.989418" x2="1.65481" y2="-0.989418" transform="matrix(0 1 1 0 16.9246 2)" stroke="currentColor" stroke-width="1.97884" stroke-linecap="round"/>
+  <path
+    d="M2 10.6993C2 10.0369 2.53694 9.5 3.19929 9.5H20.8007C21.4631 9.5 22 10.0369 22 10.6993V17.2028C22 19.8522 19.8522 22 17.2028 22H6.79718C4.14777 22 2 19.8522 2 17.2028V10.6993Z"
+    fill="currentColor" />
+  <ellipse cx="15.9949" cy="16.6634" rx="1.1809" ry="1.10577" fill="white" />
+  <ellipse cx="11.9749" cy="16.6634" rx="1.13065" ry="1.10577" fill="white" />
+  <ellipse cx="7.95483" cy="16.6634" rx="1.1809" ry="1.10577" fill="white" />
+  <ellipse cx="15.9949" cy="13.0096" rx="1.1809" ry="1.10577" fill="white" />
+  <ellipse cx="11.9749" cy="13.0096" rx="1.13065" ry="1.10577" fill="white" />
+  <ellipse cx="7.95483" cy="13.0096" rx="1.1809" ry="1.10577" fill="white" />
+  <path
+    d="M2 7.14428C2 7.64877 2.40897 8.05774 2.91346 8.05774H21.0865C21.591 8.05774 22 7.64877 22 7.14428V7.14428C22 5.12631 20.3641 3.49043 18.3462 3.49043H5.65384C3.63588 3.49043 2 5.12631 2 7.14428V7.14428Z"
+    fill="currentColor" />
+  <line x1="0.989418" y1="-0.989418" x2="1.65481" y2="-0.989418"
+    transform="matrix(0 1 1 0 16.9246 2)" stroke="currentColor" stroke-width="1.97884"
+    stroke-linecap="round" />
+  <line x1="8.11515" y1="2.98942" x2="8.11515" y2="3.65481" stroke="currentColor"
+    stroke-width="1.97884"
+    stroke-linecap="round" />
 </svg>

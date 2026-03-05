@@ -9,7 +9,6 @@ import Circle from './circle.svg?react';
 import Home from './home.svg?react';
 import Management from './management.svg?react';
 import Notification from './notification.svg?react';
-import PlusCloud from './plus-cloud.svg?react';
 import Plus from './plus.svg?react';
 import Profile from './profile.svg?react';
 import Search from './search.svg?react';
@@ -29,7 +28,6 @@ export {
   Home,
   Management,
   Notification,
-  PlusCloud,
   Plus,
   Profile,
   Search,
