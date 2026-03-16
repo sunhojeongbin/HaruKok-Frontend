@@ -1,17 +1,24 @@
-type TButtonType = 'button' | 'submit' | 'reset';
-type TButtonVariant = 'solid' | 'filled';
+type ButtonType = 'button' | 'submit' | 'reset';
+type ButtonVariant = 'solid' | 'filled';
 
-interface IButtonProps {
+interface ButtonProps {
   children: React.ReactNode;
-  type?: TButtonType;
-  variant?: TButtonVariant;
+  type?: ButtonType;
+  variant?: ButtonVariant;
+  disabled?: boolean;
   onClick?: () => void;
 }
 
-export const Button = ({ children, type = 'button', variant = 'solid', onClick }: IButtonProps) => {
+export const Button = ({
+  children,
+  type = 'button',
+  variant = 'solid',
+  disabled,
+  onClick,
+}: ButtonProps) => {
   const buttonClasses = {
     root: 'h-12 w-full rounded-lg font-medium',
-    solid: 'bg-[#aad1f0] text-[#ffffff]',
+    solid: 'bg-[#aad1f0] text-white',
     filled: 'bg-[#aad1f033] text-[#aad1f0]',
   };
 
@@ -19,7 +26,8 @@ export const Button = ({ children, type = 'button', variant = 'solid', onClick }
     <button
       type={type}
       onClick={onClick}
-      className={`${buttonClasses.root} ${buttonClasses[variant]}`}
+      disabled={disabled}
+      className={`${buttonClasses.root} ${disabled ? 'cursor-not-allowed bg-[#edf0f7] text-[#b2b8c0]' : buttonClasses[variant]}`}
     >
       {children}
     </button>
