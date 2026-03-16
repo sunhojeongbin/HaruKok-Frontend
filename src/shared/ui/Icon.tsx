@@ -1,14 +1,14 @@
 import * as icons from '../assets/icons';
 
-export type TIconName = keyof typeof icons;
+export type IconName = keyof typeof icons;
 
-interface IIconProps {
-  name: TIconName;
+interface IconProps {
+  name: IconName;
   size?: number;
   color?: string;
 }
 
-export const Icon = ({ name, size = 24, color }: IIconProps) => {
+export const Icon = ({ name, size = 24, color }: IconProps) => {
   const Svg = icons[name];
 
   return <Svg width={size} height={size} style={{ color }} />;

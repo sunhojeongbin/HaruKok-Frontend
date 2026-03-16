@@ -2,20 +2,36 @@ import { useRef, useState } from 'react';
 
 import { Icon } from './Icon';
 
-interface IInputProps {
+interface InputProps {
   type?: string;
   id?: string;
-  placeholder?: string;
+  name?: string;
   value?: string;
+  placeholder?: string;
+  required?: boolean;
+  disabled?: boolean;
+  clearable?: boolean;
+  rightElement?: React.ReactNode;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const Input = ({ type = 'text', id, placeholder, value, onChange }: IInputProps) => {
+export const Input = ({
+  type = 'text',
+  id,
+  name,
+  value,
+  placeholder,
+  required,
+  disabled,
+  clearable = false,
+  rightElement,
+  onChange,
+}: InputProps) => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleClear = () => {
-    onChange?.({ target: { value: '' } } as React.ChangeEvent<HTMLInputElement>);
+    onChange?.({ target: { name, value: '' } } as React.ChangeEvent<HTMLInputElement>);
     inputRef.current?.focus();
   };
 
@@ -25,24 +41,31 @@ export const Input = ({ type = 'text', id, placeholder, value, onChange }: IInpu
         ref={inputRef}
         type={type}
         id={id}
-        placeholder={placeholder}
+        name={name}
         value={value}
+        placeholder={placeholder}
+        required={required}
+        disabled={disabled}
         onChange={onChange}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        className='flex-1 bg-transparent placeholder:text-sm focus:outline-none'
+        className='flex-1 bg-transparent placeholder:text-sm focus:outline-none disabled:cursor-not-allowed'
       />
 
-      {isFocused && !!value && (
-        <button
-          type='button'
-          aria-label='Clear input'
-          onMouseDown={(e) => e.preventDefault()}
-          onClick={handleClear}
-        >
-          <Icon name='XCircle' />
-        </button>
-      )}
+      <div className='flex items-center gap-1'>
+        {rightElement}
+
+        {clearable && isFocused && !!value && !disabled && (
+          <button
+            type='button'
+            aria-label='Clear input'
+            onMouseDown={(e) => e.preventDefault()}
+            onClick={handleClear}
+          >
+            <Icon name='XCircle' />
+          </button>
+        )}
+      </div>
     </div>
   );
 };

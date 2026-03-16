@@ -1,3 +1,4 @@
+export { BottomSheet } from './BottomSheet';
 export { BottomTabNavigator } from './BottomTabNavigator';
 export { Button } from './Button';
 export { Calendar } from './Calendar';

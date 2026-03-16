@@ -2,14 +2,14 @@ import { useMemo, useRef, useState } from 'react';
 
 import { IconButton } from './IconButton';
 
-type TViewMode = 'week' | 'month';
+type ViewMode = 'week' | 'month';
 
-interface ICalendarProps {
+interface CalendarProps {
   onDateSelect?: (date: Date) => void;
 }
 
-export const Calendar = ({ onDateSelect }: ICalendarProps) => {
-  const [viewMode, setViewMode] = useState<TViewMode>('week');
+export const Calendar = ({ onDateSelect }: CalendarProps) => {
+  const [viewMode, setViewMode] = useState<ViewMode>('week');
   const [currentWeek, setCurrentWeek] = useState(new Date());
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date>(new Date()); // 선택된 날짜
@@ -220,7 +220,8 @@ export const Calendar = ({ onDateSelect }: ICalendarProps) => {
         <span className='text-sm font-medium'>{formatYearMonth(baseDate)}</span>
         <IconButton
           icon={viewMode === 'week' ? 'ArrowDown' : 'ArrowUp'}
-          size={20}
+          iconSize={20}
+          color='#b2b8c0'
           onClick={toggleViewMode}
         />
       </div>
