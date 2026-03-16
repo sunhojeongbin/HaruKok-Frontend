@@ -7,4 +7,5 @@ export { IconButton } from './IconButton';
 export { Input } from './Input';
 export { Label } from './Label';
 export { MainHeader } from './MainHeader';
+export { PasswordInput } from './PasswordInput';
 export { SubHeader } from './SubHeader';

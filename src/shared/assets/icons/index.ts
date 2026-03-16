@@ -6,6 +6,8 @@ import Calendar from './calendar.svg?react';
 import CheckCircle from './check-circle.svg?react';
 import Check from './check.svg?react';
 import Circle from './circle.svg?react';
+import EyeOff from './eye-off.svg?react';
+import Eye from './eye.svg?react';
 import Home from './home.svg?react';
 import Management from './management.svg?react';
 import Notification from './notification.svg?react';
@@ -25,6 +27,8 @@ export {
   CheckCircle,
   Check,
   Circle,
+  EyeOff,
+  Eye,
   Home,
   Management,
   Notification,
