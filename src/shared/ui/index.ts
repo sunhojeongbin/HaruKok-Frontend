@@ -2,6 +2,7 @@ export { BottomSheet } from './BottomSheet';
 export { BottomTabNavigator } from './BottomTabNavigator';
 export { Button } from './Button';
 export { Calendar } from './Calendar';
+export { Field } from './Field';
 export { Icon } from './Icon';
 export { IconButton } from './IconButton';
 export { Input } from './Input';
