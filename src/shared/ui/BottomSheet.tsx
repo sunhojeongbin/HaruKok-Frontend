@@ -2,7 +2,7 @@ import { useId } from 'react';
 
 import { Icon } from './Icon';
 
-interface IBottomSheetProps {
+interface BottomSheetProps {
   open: boolean;
   title: string;
   children: React.ReactNode;
@@ -11,7 +11,7 @@ interface IBottomSheetProps {
 }
 
 // TODO: iOS 웹뷰에서 키보드가 올라올 때 레이아웃 깨짐 이슈 해결
-export const BottomSheet = ({ open, title, children, onClose, onConfirm }: IBottomSheetProps) => {
+export const BottomSheet = ({ open, title, children, onClose, onConfirm }: BottomSheetProps) => {
   const titleId = useId();
 
   return (

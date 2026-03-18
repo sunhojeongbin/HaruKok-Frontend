@@ -1,9 +1,12 @@
+export { BottomSheet } from './BottomSheet';
 export { BottomTabNavigator } from './BottomTabNavigator';
 export { Button } from './Button';
 export { Calendar } from './Calendar';
+export { Field } from './Field';
 export { Icon } from './Icon';
 export { IconButton } from './IconButton';
 export { Input } from './Input';
 export { Label } from './Label';
 export { MainHeader } from './MainHeader';
+export { PasswordInput } from './PasswordInput';
 export { SubHeader } from './SubHeader';
