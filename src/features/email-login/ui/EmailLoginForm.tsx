@@ -1,48 +1,62 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-import { Button, Input, Label } from '../../../shared/ui';
+import type { EmailLoginFormValues } from '../model/types';
+
+import { useLogin } from '../model/useLogin';
+
+import { Button, Field, Input, PasswordInput } from '../../../shared/ui';
 
 export const EmailLoginForm = () => {
-  const navigate = useNavigate();
+  const [form, setForm] = useState<EmailLoginFormValues>({
+    email: '',
+    password: '',
+  });
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { mutate: login, isPending, error, reset } = useLogin();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+
+    reset();
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     // 폼 제출 시 페이지 새로고침 방지
     e.preventDefault();
 
-    if (email === 'test@gmail.com' && password === '1234') {
-      navigate('/todo');
-    }
+    login(form);
   };
 
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
       <div className='flex flex-col gap-4'>
-        <div>
-          <Label htmlFor='email'>이메일</Label>
+        <Field label='이메일' htmlFor='email'>
           <Input
             type='email'
             id='email'
+            name='email'
+            value={form.email}
             placeholder='이메일을 입력해 주세요.'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            clearable
+            onChange={handleChange}
           />
-        </div>
-        <div>
-          <Label htmlFor='password'>비밀번호</Label>
-          <Input
-            type='password'
+        </Field>
+
+        <Field label='비밀번호' htmlFor='password' errorMessage={error?.message}>
+          <PasswordInput
             id='password'
+            name='password'
+            value={form.password}
             placeholder='비밀번호를 입력해 주세요.'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handleChange}
           />
-        </div>
+        </Field>
       </div>
-      <Button type='submit'>로그인</Button>
+
+      <Button type='submit' disabled={!form.email || !form.password} loading={isPending}>
+        로그인
+      </Button>
     </form>
   );
 };
