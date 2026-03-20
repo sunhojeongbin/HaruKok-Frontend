@@ -2,7 +2,7 @@ import { Label } from './Label';
 
 interface FieldProps {
   children: React.ReactNode;
-  label?: string;
+  label?: React.ReactNode;
   htmlFor?: string;
   errorMessage?: string;
 }

@@ -8,7 +8,7 @@ import { Button, Field, Input } from '../../../shared/ui';
 export const VerificationCodeForm = () => {
   const [form, setForm] = useState({ code: '' });
 
-  const { email, setStep } = useSignupStore();
+  const { email, setStep, setSignupToken } = useSignupStore();
   const { mutate: verifyEmail, isPending, error, reset } = useVerifyEmail();
 
   const maskedEmail = (email: string) => {
@@ -30,7 +30,8 @@ export const VerificationCodeForm = () => {
     verifyEmail(
       { email, code: form.code },
       {
-        onSuccess: () => {
+        onSuccess: ({ signupToken }) => {
+          setSignupToken(signupToken);
           setStep('userInfo');
         },
       },
