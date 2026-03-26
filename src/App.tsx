@@ -10,6 +10,7 @@ import { EmailSignupPage } from './pages/email-signup/ui/EmailSignupPage';
 import { TodoPage } from './pages/todo/ui/TodoPage';
 import { CalendarPage } from './pages/calendar/ui/CalendarPage';
 import { ProfilePage } from './pages/profile/ui/ProfilePage';
+import { CategoryPage } from './pages/category/ui/CategoryPage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
                 <Route path='/calendar' element={<CalendarPage />} />
                 <Route path='/profile' element={<ProfilePage />} />
               </Route>
+              <Route path='/categories' element={<CategoryPage />} />
             </Route>
           </Routes>
         </AuthProvider>

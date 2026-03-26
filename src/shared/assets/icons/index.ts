@@ -9,8 +9,10 @@ import Circle from './circle.svg?react';
 import EyeOff from './eye-off.svg?react';
 import Eye from './eye.svg?react';
 import Home from './home.svg?react';
+import Lock from './lock.svg?react';
 import Management from './management.svg?react';
 import Notification from './notification.svg?react';
+import People from './people.svg?react';
 import Plus from './plus.svg?react';
 import Profile from './profile.svg?react';
 import Search from './search.svg?react';
@@ -30,8 +32,10 @@ export {
   EyeOff,
   Eye,
   Home,
+  Lock,
   Management,
   Notification,
+  People,
   Plus,
   Profile,
   Search,
