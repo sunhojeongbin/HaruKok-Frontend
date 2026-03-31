@@ -8,13 +8,14 @@ import { useSignup } from '../model/useSignup';
 import { Button, Field, Input, PasswordInput } from '../../../shared/ui';
 
 export const UserInfoForm = () => {
+  const { email, signupToken, setStep } = useSignupStore();
+
+  const { mutate: signup, isPending, error, reset } = useSignup();
+
   const [form, setForm] = useState<UserInfoFormValues>({
     password: '',
     name: '',
   });
-
-  const { email, signupToken, setStep } = useSignupStore();
-  const { mutate: signup, isPending, error, reset } = useSignup();
 
   const isValidPassword = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,20}$/.test(form.password);
 

@@ -6,10 +6,11 @@ import { useVerifyEmail } from '../model/useVerifyEmail';
 import { Button, Field, Input } from '../../../shared/ui';
 
 export const VerificationCodeForm = () => {
-  const [form, setForm] = useState({ code: '' });
-
   const { email, setStep, setSignupToken } = useSignupStore();
+
   const { mutate: verifyEmail, isPending, error, reset } = useVerifyEmail();
+
+  const [form, setForm] = useState({ code: '' });
 
   const maskedEmail = (email: string) => {
     const [local, domain] = email.split('@');

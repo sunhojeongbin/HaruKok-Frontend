@@ -7,12 +7,12 @@ import { useLogin } from '../model/useLogin';
 import { Button, Field, Input, PasswordInput } from '../../../shared/ui';
 
 export const EmailLoginForm = () => {
+  const { mutate: login, isPending, error, reset } = useLogin();
+
   const [form, setForm] = useState<EmailLoginFormValues>({
     email: '',
     password: '',
   });
-
-  const { mutate: login, isPending, error, reset } = useLogin();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
