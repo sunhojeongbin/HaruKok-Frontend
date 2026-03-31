@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import type { Category } from '../model/types';
 
 import { Icon } from '../../../shared/ui';
@@ -7,10 +9,16 @@ interface CategoryItemProps {
 }
 
 export const CategoryItem = ({ category }: CategoryItemProps) => {
+  const navigate = useNavigate();
+
   const isFriends = category.visibility === 'FRIENDS';
 
   return (
-    <div className='flex flex-col gap-1 rounded-lg bg-[#f9fafb] p-4'>
+    <button
+      type='button'
+      onClick={() => navigate(`/categories/${category.id}/edit`)}
+      className='flex flex-col gap-1 rounded-lg bg-[#f9fafb] p-4'
+    >
       <div className='flex items-center gap-2'>
         <div
           className='h-3 w-3 shrink-0 rounded-full'
@@ -23,6 +31,6 @@ export const CategoryItem = ({ category }: CategoryItemProps) => {
         <Icon name={isFriends ? 'People' : 'Lock'} size={14} />
         <span>{isFriends ? '친구 공개' : '나만 보기'}</span>
       </div>
-    </div>
+    </button>
   );
 };

@@ -10,7 +10,7 @@ import { EmailSignupPage } from './pages/email-signup/ui/EmailSignupPage';
 import { TodoPage } from './pages/todo/ui/TodoPage';
 import { CalendarPage } from './pages/calendar/ui/CalendarPage';
 import { ProfilePage } from './pages/profile/ui/ProfilePage';
-import { CategoryPage } from './pages/category/ui/CategoryPage';
+import { CategoryCreatePage, CategoryEditPage, CategoryPage } from './pages/categories/ui';
 
 function App() {
   return (
@@ -30,6 +30,8 @@ function App() {
                 <Route path='/profile' element={<ProfilePage />} />
               </Route>
               <Route path='/categories' element={<CategoryPage />} />
+              <Route path='/categories/new' element={<CategoryCreatePage />} />
+              <Route path='/categories/:categoryId/edit' element={<CategoryEditPage />} />
             </Route>
           </Routes>
         </AuthProvider>
