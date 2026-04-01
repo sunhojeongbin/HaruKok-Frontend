@@ -1,7 +1,9 @@
-export interface ITodo {
+export interface Todo {
   id: string;
   categoryId: string;
-  title: string;
+  content: string;
+  memo: string;
   date: string;
-  memo?: string;
+  isCompleted: boolean;
+  order: number;
 }

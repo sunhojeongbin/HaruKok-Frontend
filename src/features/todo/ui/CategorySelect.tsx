@@ -1,18 +1,20 @@
 import { useState } from 'react';
 
-import { mockCategories } from '../../../entities/category/model/mockCategories';
+import { useCategories } from '../../../entities/category/model/useCategories';
 
 import { Icon } from '../../../shared/ui';
 
-interface ICategorySelectProps {
+interface CategorySelectProps {
   value: string;
   onChange: (value: string) => void;
 }
 
-export const CategorySelect = ({ value, onChange }: ICategorySelectProps) => {
-  const [isOpen, setIsOpen] = useState(false);
+export const CategorySelect = ({ value, onChange }: CategorySelectProps) => {
+  const { data: categories = [] } = useCategories();
 
-  const selectedCategory = mockCategories.find((ctg) => ctg.id === value);
+  const selectedCategory = categories.find((category) => category.id === value);
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className='relative'>
@@ -26,7 +28,7 @@ export const CategorySelect = ({ value, onChange }: ICategorySelectProps) => {
           color: selectedCategory?.color || '#aad1f0',
         }}
       >
-        <span className='flex-1 truncate text-left text-sm font-medium'>
+        <span className='min-w-0 flex-1 truncate text-left text-sm font-medium'>
           {selectedCategory?.name}
         </span>
         <Icon name={isOpen ? 'ArrowUp' : 'ArrowDown'} size={20} />
@@ -37,7 +39,7 @@ export const CategorySelect = ({ value, onChange }: ICategorySelectProps) => {
           <div onClick={() => setIsOpen(false)} className='fixed inset-0 z-10' />
 
           <div className='absolute top-14 z-20 max-h-36 w-full overflow-y-auto rounded-lg bg-white shadow-md'>
-            {mockCategories.map((category) => (
+            {categories.map((category) => (
               <button
                 key={category.id}
                 type='button'
@@ -49,7 +51,10 @@ export const CategorySelect = ({ value, onChange }: ICategorySelectProps) => {
                   value === category.id ? 'bg-gray-100' : ''
                 }`}
               >
-                <div className='h-3 w-3 rounded-full' style={{ backgroundColor: category.color }} />
+                <div
+                  className='h-3 w-3 shrink-0 rounded-full'
+                  style={{ backgroundColor: category.color }}
+                />
                 <span className='font-medium'>{category.name}</span>
               </button>
             ))}
