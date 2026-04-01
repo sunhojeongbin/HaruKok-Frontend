@@ -1,10 +1,20 @@
-import { IconButton } from '../../../shared/ui';
+import { Icon } from '../../../shared/ui';
 
-interface ITodoCheckboxProps {
+interface TodoCheckboxProps {
   checked: boolean;
+  disabled?: boolean;
   onToggle: () => void;
 }
 
-export const TodoCheckbox = ({ checked, onToggle }: ITodoCheckboxProps) => {
-  return <IconButton icon={checked ? 'CheckCircle' : 'Circle'} onClick={onToggle} />;
+export const TodoCheckbox = ({ checked, disabled, onToggle }: TodoCheckboxProps) => {
+  return (
+    <button
+      type='button'
+      onClick={onToggle}
+      disabled={disabled}
+      className='flex h-6 w-6 items-center justify-center'
+    >
+      <Icon name={checked ? 'CheckCircle' : 'Circle'} />
+    </button>
+  );
 };
