@@ -1,4 +1,6 @@
 import type { ApiResponse } from '../../../shared/api/types';
+import { instance } from '../../../shared/api/client';
+
 import type {
   LoginRequest,
   LoginResponse,
@@ -12,8 +14,6 @@ import type {
   VerifyEmailRequest,
   VerifyEmailResponse,
 } from './types';
-
-import { instance } from '../../../shared/api/client';
 
 export const authApi = {
   sendEmail: async (body: SendEmailRequest) => {

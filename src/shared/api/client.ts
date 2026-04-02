@@ -1,9 +1,9 @@
 import axios, { AxiosError, type AxiosRequestConfig } from 'axios';
 
-import type { ApiResponse } from './types';
 import type { RefreshResponse } from '../../entities/auth/api/types';
-
 import { useAuthStore } from '../../entities/auth/model/store';
+
+import type { ApiResponse } from './types';
 
 export const instance = axios.create({
   baseURL: 'http://localhost:3000/',

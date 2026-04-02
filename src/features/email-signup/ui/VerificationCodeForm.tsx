@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
+import { Button, Field, Input } from '../../../shared/ui';
+
 import { useSignupStore } from '../model/store';
 import { useVerifyEmail } from '../model/useVerifyEmail';
-
-import { Button, Field, Input } from '../../../shared/ui';
 
 export const VerificationCodeForm = () => {
   const { email, setStep, setSignupToken } = useSignupStore();

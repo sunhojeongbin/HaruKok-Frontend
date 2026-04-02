@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
-import type { EmailLoginFormValues } from '../model/types';
-
-import { useLogin } from '../model/useLogin';
-
 import { Button, Field, Input, PasswordInput } from '../../../shared/ui';
+
+import type { EmailLoginFormValues } from '../model/types';
+import { useLogin } from '../model/useLogin';
 
 export const EmailLoginForm = () => {
   const { mutate: login, isPending, error, reset } = useLogin();

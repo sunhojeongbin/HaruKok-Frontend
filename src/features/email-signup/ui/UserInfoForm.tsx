@@ -1,11 +1,10 @@
 import { useState } from 'react';
 
-import type { UserInfoFormValues } from '../model/types';
+import { Button, Field, Input, PasswordInput } from '../../../shared/ui';
 
+import type { UserInfoFormValues } from '../model/types';
 import { useSignupStore } from '../model/store';
 import { useSignup } from '../model/useSignup';
-
-import { Button, Field, Input, PasswordInput } from '../../../shared/ui';
 
 export const UserInfoForm = () => {
   const { email, signupToken, setStep } = useSignupStore();

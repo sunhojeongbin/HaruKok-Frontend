@@ -1,4 +1,6 @@
 import type { ApiResponse } from '../../../shared/api/types';
+import { instance } from '../../../shared/api/client';
+
 import type {
   CategoryResponse,
   CreateCategoryRequest,
@@ -7,9 +9,6 @@ import type {
   ReorderCategoryRequest,
   UpdateCategoryRequest,
 } from './types';
-
-import { instance } from '../../../shared/api/client';
-
 import { toCategory, toCategoryList } from '../model/mapper';
 
 export const categoryApi = {

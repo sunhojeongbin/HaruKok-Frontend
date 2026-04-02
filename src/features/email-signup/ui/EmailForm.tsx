@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
+import { Button, Field, Input } from '../../../shared/ui';
+
 import { useSignupStore } from '../model/store';
 import { useSendEmail } from '../model/useSendEmail';
-
-import { Button, Field, Input } from '../../../shared/ui';
 
 export const EmailForm = () => {
   const { setStep, setEmail } = useSignupStore();

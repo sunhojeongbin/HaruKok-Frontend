@@ -1,8 +1,7 @@
 import type { Todo } from '../model/types';
+import { TodoCheckbox } from './TodoCheckbox';
 
 import { useToggleTodo } from '../../../features/todo/model/useToggleTodo';
-
-import { TodoCheckbox } from './TodoCheckbox';
 
 interface TodoItemProps {
   todo: Todo;

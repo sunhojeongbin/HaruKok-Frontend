@@ -1,4 +1,6 @@
 import type { ApiResponse } from '../../../shared/api/types';
+import { instance } from '../../../shared/api/client';
+
 import type {
   CreateTodoRequest,
   DeleteTodoResponse,
@@ -8,9 +10,6 @@ import type {
   ToggleTodoResponse,
   UpdateTodoRequest,
 } from './types';
-
-import { instance } from '../../../shared/api/client';
-
 import { toTodoList, toTodo } from '../model/mapper';
 
 export const todoApi = {

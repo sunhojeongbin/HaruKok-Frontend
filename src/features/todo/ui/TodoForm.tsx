@@ -1,6 +1,6 @@
-import type { TodoFormValues } from '../model/types';
-
 import { Field, Input } from '../../../shared/ui';
+
+import type { TodoFormValues } from '../model/types';
 import { CategorySelect } from './CategorySelect';
 
 interface TodoFormProps {

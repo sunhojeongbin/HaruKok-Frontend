@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { useCategories } from '../../../entities/category/model/useCategories';
-
 import { Icon } from '../../../shared/ui';
+
+import { useCategories } from '../../../entities/category/model/useCategories';
 
 interface CategorySelectProps {
   value: string;

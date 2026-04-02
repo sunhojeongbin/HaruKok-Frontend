@@ -49,7 +49,7 @@ export const Input = ({
         onChange={onChange}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        className='flex-1 bg-transparent placeholder:text-sm focus:outline-none disabled:cursor-not-allowed'
+        className='min-w-0 flex-1 bg-transparent placeholder:text-sm focus:outline-none disabled:cursor-not-allowed'
       />
 
       <div className='flex items-center gap-1'>

@@ -1,11 +1,9 @@
 import { useState } from 'react';
 
-import type { CategoryFormValues } from '../../../features/category/model/types';
-
 import { SubLayout } from '../../../app/layouts';
 
+import type { CategoryFormValues } from '../../../features/category/model/types';
 import { useCreateCategory } from '../../../features/category/model/useCreateCategory';
-
 import { CategoryForm } from '../../../features/category/ui/CategoryForm';
 
 export const CategoryCreatePage = () => {
