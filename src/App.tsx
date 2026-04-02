@@ -11,6 +11,7 @@ import { TodoPage } from './pages/todo/ui/TodoPage';
 import { CalendarPage } from './pages/calendar/ui/CalendarPage';
 import { ProfilePage } from './pages/profile/ui/ProfilePage';
 import { CategoryCreatePage, CategoryEditPage, CategoryPage } from './pages/categories/ui';
+import { RoutinePage } from './pages/routines/ui/RoutinePage';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
               <Route path='/categories' element={<CategoryPage />} />
               <Route path='/categories/new' element={<CategoryCreatePage />} />
               <Route path='/categories/:categoryId/edit' element={<CategoryEditPage />} />
+              <Route path='/routines' element={<RoutinePage />} />
             </Route>
           </Routes>
         </AuthProvider>
