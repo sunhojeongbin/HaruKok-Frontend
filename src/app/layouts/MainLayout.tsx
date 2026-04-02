@@ -6,7 +6,7 @@ export const MainLayout = () => {
   return (
     <div className='flex h-screen flex-col'>
       <MainHeader />
-      <main className='flex-1 overflow-y-auto overscroll-none'>
+      <main className='min-h-0 flex-1 overflow-y-auto overscroll-none'>
         <Outlet />
       </main>
       <BottomTabNavigator />

@@ -1,15 +1,16 @@
 import { useState } from 'react';
 
+import { Button, Field, Input } from '../../../shared/ui';
+
 import { useSignupStore } from '../model/store';
 import { useSendEmail } from '../model/useSendEmail';
 
-import { Button, Field, Input } from '../../../shared/ui';
-
 export const EmailForm = () => {
-  const [form, setForm] = useState({ email: '' });
-
   const { setStep, setEmail } = useSignupStore();
+
   const { mutate: sendEmail, isPending, error, reset } = useSendEmail();
+
+  const [form, setForm] = useState({ email: '' });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({ ...prev, email: e.target.value }));

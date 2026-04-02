@@ -1,6 +1,6 @@
-import type { Step } from '../model/types';
-
 import { Icon } from '../../../shared/ui';
+
+import type { Step } from '../model/types';
 
 const STEPS: { key: Step; label: string }[] = [
   { key: 'email', label: '이메일' },

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import { Button } from '../../../shared/ui';
+
 import { KakaoLoginButton } from '../../../features/social-login/ui/KakaoLoginButton';
 
 export const LoginPage = () => {

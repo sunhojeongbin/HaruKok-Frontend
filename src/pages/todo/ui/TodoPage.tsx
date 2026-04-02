@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import { Calendar } from '../../../shared/ui/Calendar';
+
 import { TodoList } from '../../../widgets/todo-list/ui/TodoList';
 
 export const TodoPage = () => {

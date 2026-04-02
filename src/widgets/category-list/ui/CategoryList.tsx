@@ -1,5 +1,4 @@
 import { useCategories } from '../../../entities/category/model/useCategories';
-
 import { CategoryItem, CategoryItemSkeleton } from '../../../entities/category/ui';
 
 export const CategoryList = () => {

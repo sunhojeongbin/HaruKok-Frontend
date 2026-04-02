@@ -19,8 +19,11 @@ export interface CreateCategoryRequest {
   colorCode: string;
 }
 
-export interface UpdateCategoryRequest extends CreateCategoryRequest {
-  isEnded: boolean;
+export interface UpdateCategoryRequest {
+  ctgName?: string;
+  visibility?: CategoryVisibility;
+  colorCode?: string;
+  isEnded?: boolean;
 }
 
 export interface DeleteCategoryResponse {
