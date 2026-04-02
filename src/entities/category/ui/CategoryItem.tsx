@@ -24,7 +24,7 @@ export const CategoryItem = ({ category }: CategoryItemProps) => {
           className='h-3 w-3 shrink-0 rounded-full'
           style={{ backgroundColor: category.color }}
         />
-        <span className='font-medium'>{category.name}</span>
+        <span className='text-sm font-medium'>{category.name}</span>
       </div>
 
       <div className='ml-5 flex items-center gap-1 text-xs text-[#b2b8c0]'>
