@@ -2,12 +2,14 @@ import { useNavigate } from 'react-router-dom';
 
 import { IconButton } from './IconButton';
 
-interface ISubHeaderProps {
+interface SubHeaderProps {
   children: React.ReactNode;
+  disabled?: boolean;
   onPlus?: () => void;
+  onSubmit?: () => void;
 }
 
-export const SubHeader = ({ children, onPlus }: ISubHeaderProps) => {
+export const SubHeader = ({ children, disabled, onPlus, onSubmit }: SubHeaderProps) => {
   const navigate = useNavigate();
 
   return (
@@ -20,6 +22,17 @@ export const SubHeader = ({ children, onPlus }: ISubHeaderProps) => {
 
       <div className='flex justify-end'>
         {onPlus && <IconButton icon='Plus' onClick={onPlus} />}
+
+        {onSubmit && (
+          <button
+            type='button'
+            onClick={onSubmit}
+            disabled={disabled}
+            className='px-2 text-sm font-medium disabled:text-[#b2b8c0]'
+          >
+            완료
+          </button>
+        )}
       </div>
     </header>
   );
