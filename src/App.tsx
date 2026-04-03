@@ -4,6 +4,8 @@ import { AuthProvider, QueryProvider } from './app/providers';
 import { ProtectedRoute, PublicRoute } from './app/routes';
 import { MainLayout } from './app/layouts';
 
+import { Toast } from './shared/ui/toast/Toast';
+
 import { LoginPage } from './pages/login/ui/LoginPage';
 import { EmailLoginPage } from './pages/email-login/ui/EmailLoginPage';
 import { EmailSignupPage } from './pages/email-signup/ui/EmailSignupPage';
@@ -36,6 +38,7 @@ function App() {
               <Route path='/routines' element={<RoutinePage />} />
             </Route>
           </Routes>
+          <Toast />
         </AuthProvider>
       </BrowserRouter>
     </QueryProvider>

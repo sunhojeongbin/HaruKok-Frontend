@@ -1,3 +1,4 @@
+import AlertCirCle from './alert-circle.svg?react';
 import ArrowDown from './arrow-down.svg?react';
 import ArrowLeft from './arrow-left.svg?react';
 import ArrowRight from './arrow-right.svg?react';
@@ -21,6 +22,7 @@ import XCircle from './x-circle.svg?react';
 import X from './x.svg?react';
 
 export {
+  AlertCirCle,
   ArrowDown,
   ArrowLeft,
   ArrowRight,

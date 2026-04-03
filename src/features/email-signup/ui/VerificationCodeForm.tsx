@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { toast } from '../../../shared/ui/toast/store';
 import { Button, Field, Input } from '../../../shared/ui';
 
 import { useSignupStore } from '../model/store';
@@ -34,6 +35,8 @@ export const VerificationCodeForm = () => {
         onSuccess: ({ signupToken }) => {
           setSignupToken(signupToken);
           setStep('userInfo');
+
+          toast.success('이메일 인증이 완료됐어요.');
         },
       },
     );
