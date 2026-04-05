@@ -4,14 +4,22 @@ import { Icon } from './Icon';
 
 interface BottomSheetProps {
   open: boolean;
-  title: string;
   children: React.ReactNode;
+  title?: string;
+  showCloseButton?: boolean;
   onClose: () => void;
   onConfirm?: () => void;
 }
 
 // TODO: iOS 웹뷰에서 키보드가 올라올 때 레이아웃 깨짐 이슈 해결
-export const BottomSheet = ({ open, title, children, onClose, onConfirm }: BottomSheetProps) => {
+export const BottomSheet = ({
+  open,
+  children,
+  title,
+  showCloseButton = true,
+  onClose,
+  onConfirm,
+}: BottomSheetProps) => {
   const titleId = useId();
 
   return (
@@ -30,14 +38,16 @@ export const BottomSheet = ({ open, title, children, onClose, onConfirm }: Botto
       >
         <div className='grid grid-cols-3 items-center px-4 pt-4'>
           <div className='flex items-center'>
-            <button
-              type='button'
-              onClick={onClose}
-              aria-label='Close'
-              className='flex h-10 w-10 items-center justify-center rounded-full bg-[#f3f4f6] shadow-sm'
-            >
-              <Icon name='X' color='#b2b8c0' />
-            </button>
+            {showCloseButton && (
+              <button
+                type='button'
+                onClick={onClose}
+                aria-label='Close'
+                className='flex h-10 w-10 items-center justify-center rounded-full bg-[#f3f4f6] shadow-sm'
+              >
+                <Icon name='X' color='#b2b8c0' />
+              </button>
+            )}
           </div>
 
           <span id={titleId} className='text-center font-semibold'>
