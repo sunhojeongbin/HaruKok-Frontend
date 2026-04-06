@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 
-import type { Category } from '../model/types';
-
 import { Icon } from '../../../shared/ui';
+
+import type { Category } from '../model/types';
 
 interface CategoryItemProps {
   category: Category;

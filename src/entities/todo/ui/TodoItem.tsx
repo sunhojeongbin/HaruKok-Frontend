@@ -1,13 +1,14 @@
+import { useToggleTodo } from '../../../features/todo/model/useToggleTodo';
+
 import type { Todo } from '../model/types';
 import { TodoCheckbox } from './TodoCheckbox';
 
-import { useToggleTodo } from '../../../features/todo/model/useToggleTodo';
-
 interface TodoItemProps {
   todo: Todo;
+  onClick?: () => void;
 }
 
-export const TodoItem = ({ todo }: TodoItemProps) => {
+export const TodoItem = ({ todo, onClick }: TodoItemProps) => {
   const { mutate: toggle, isPending } = useToggleTodo({ yearMonth: todo.date.slice(0, 7) });
 
   const isChecked = todo.isCompleted;
@@ -22,12 +23,12 @@ export const TodoItem = ({ todo }: TodoItemProps) => {
     <div className='flex items-start'>
       <TodoCheckbox checked={isChecked} disabled={isPending} onToggle={handleToggle} />
 
-      <div className='ml-2 flex flex-col'>
+      <button onClick={onClick} className='ml-2 flex flex-col items-start'>
         <p className={`text-sm leading-6 ${isChecked ? 'text-[#b2b8c0] line-through' : ''}`}>
           {todo.content}
         </p>
         {todo.memo && <p className='text-xs text-[#b2b8c0]'>{todo.memo}</p>}
-      </div>
+      </button>
     </div>
   );
 };

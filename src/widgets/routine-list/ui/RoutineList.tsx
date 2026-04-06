@@ -25,33 +25,33 @@ export const RoutineList = () => {
     );
   }
 
-  return (
-    <div className='flex min-h-0 flex-1 flex-col'>
-      {categorizedRoutines.length > 0 ? (
-        <div className='flex flex-col gap-4'>
-          {categorizedRoutines.map(({ category, routines }) => (
-            <section key={category.id} className='flex flex-col gap-1.5'>
-              <div className='flex items-center gap-1.5'>
-                <div
-                  className='h-3 w-3 shrink-0 rounded-full'
-                  style={{ backgroundColor: category.color }}
-                />
-                <span className='text-sm font-medium'>{category.name}</span>
-              </div>
+  if (routines.length === 0) {
+    return (
+      <div className='flex flex-1 items-center justify-center'>
+        <p className='text-sm font-medium text-[#b2b8c0]'>등록된 루틴이 없어요.</p>
+      </div>
+    );
+  }
 
-              <div className='flex flex-col gap-3'>
-                {routines.map((routine) => (
-                  <RoutineItem key={routine.id} routine={routine} />
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-      ) : (
-        <div className='flex flex-1 items-center justify-center'>
-          <p className='text-sm font-medium text-[#b2b8c0]'>등록된 루틴이 없습니다.</p>
-        </div>
-      )}
+  return (
+    <div className='flex flex-col gap-4'>
+      {categorizedRoutines.map(({ category, routines }) => (
+        <section key={category.id} className='flex flex-col gap-1.5'>
+          <div className='flex items-center gap-1.5'>
+            <div
+              className='h-3 w-3 shrink-0 rounded-full'
+              style={{ backgroundColor: category.color }}
+            />
+            <span className='text-sm font-medium'>{category.name}</span>
+          </div>
+
+          <div className='flex flex-col gap-3'>
+            {routines.map((routine) => (
+              <RoutineItem key={routine.id} routine={routine} />
+            ))}
+          </div>
+        </section>
+      ))}
     </div>
   );
 };
