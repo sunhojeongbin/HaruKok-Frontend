@@ -6,13 +6,14 @@ import { useCategories } from '../../../entities/category/model/useCategories';
 
 interface CategorySelectProps {
   value: string;
-  onChange: (value: string) => void;
+  onChange: (categoryId: string) => void;
 }
 
 export const CategorySelect = ({ value, onChange }: CategorySelectProps) => {
   const { data: categories = [] } = useCategories();
 
-  const selectedCategory = categories.find((category) => category.id === value);
+  const activeCategories = categories.filter((category) => !category.isEnded);
+  const selectedCategory = activeCategories.find((category) => category.id === value);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,7 +40,7 @@ export const CategorySelect = ({ value, onChange }: CategorySelectProps) => {
           <div onClick={() => setIsOpen(false)} className='fixed inset-0 z-10' />
 
           <div className='absolute top-14 z-20 max-h-36 w-full overflow-y-auto rounded-lg bg-white shadow-md'>
-            {categories.map((category) => (
+            {activeCategories.map((category) => (
               <button
                 key={category.id}
                 type='button'

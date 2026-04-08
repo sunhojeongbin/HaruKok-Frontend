@@ -3,7 +3,7 @@ import { useId } from 'react';
 import { Field, Input } from '../../../shared/ui';
 
 import type { TodoFormValues } from '../model/types';
-import { CategorySelect } from './CategorySelect';
+import { CategorySelect } from '../../category/ui/CategorySelect';
 
 interface TodoFormProps {
   values: TodoFormValues;
