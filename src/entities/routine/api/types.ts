@@ -30,7 +30,30 @@ export interface CreateRoutineRequest {
   startDt: string;
   endDt: string;
   rptTypeCd: RepeatType;
-  dayOfWeek?: number[];
-  dayOfMth?: number[];
+  dayOfWeeks?: number[];
+  dayOfMths?: number[];
   alarmTime?: string;
+}
+
+export interface UpdateRoutineRequest {
+  rtnContent?: string;
+  startDt?: string;
+  endDt?: string;
+  rptTypeCd?: RepeatType;
+  dayOfWeeks?: number[];
+  dayOfMths?: number[];
+  alarmTime?: string;
+}
+
+export interface DeleteRoutineResponse {
+  rtnId: string;
+}
+
+export interface ReorderRoutineRequest {
+  rtnIds: string[];
+}
+
+export interface ReorderRoutineItem {
+  rtnId: string;
+  sortOrder: number;
 }
