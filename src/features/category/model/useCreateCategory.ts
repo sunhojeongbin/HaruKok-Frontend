@@ -19,8 +19,5 @@ export const useCreateCategory = () => {
       // 카테고리 관리 페이지로 뒤로 가기 방지
       navigate('/categories', { replace: true });
     },
-    onError: (error) => {
-      toast.error(error.message || '카테고리를 추가하지 못했어요.');
-    },
   });
 };

@@ -7,7 +7,7 @@ import { useCreateCategory } from '../../../features/category/model/useCreateCat
 import { CategoryForm } from '../../../features/category/ui/CategoryForm';
 
 export const CategoryCreatePage = () => {
-  const { mutate: create, isPending } = useCreateCategory();
+  const { mutate: create, isPending, error, reset } = useCreateCategory();
 
   const [form, setForm] = useState<CategoryFormValues>({
     name: '',
@@ -20,6 +20,8 @@ export const CategoryCreatePage = () => {
     value: CategoryFormValues[K],
   ) => {
     setForm((prev) => ({ ...prev, [key]: value }));
+
+    reset();
   };
 
   const handleSubmit = () => {
@@ -33,8 +35,8 @@ export const CategoryCreatePage = () => {
   };
 
   return (
-    <SubLayout title='카테고리 추가' onSubmit={handleSubmit}>
-      <CategoryForm values={form} onChange={handleChange} />
+    <SubLayout title='카테고리 추가' disabled={isPending} onSubmit={handleSubmit}>
+      <CategoryForm values={form} errorMessage={error?.message} onChange={handleChange} />
     </SubLayout>
   );
 };

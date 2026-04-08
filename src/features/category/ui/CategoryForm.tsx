@@ -7,6 +7,7 @@ import type { CategoryFormValues } from '../model/types';
 
 interface CategoryFormProps {
   values: CategoryFormValues;
+  errorMessage?: string;
   onChange: <K extends keyof CategoryFormValues>(key: K, value: CategoryFormValues[K]) => void;
 }
 
@@ -22,10 +23,10 @@ const visibilityOptions: VisibilityOption[] = [
   { id: 'PRIVATE', icon: 'Lock', label: '나만 보기', description: '나만 볼 수 있어요.' },
 ];
 
-export const CategoryForm = ({ values, onChange }: CategoryFormProps) => {
+export const CategoryForm = ({ values, errorMessage, onChange }: CategoryFormProps) => {
   return (
     <div className='flex flex-col gap-4'>
-      <Field label='카테고리 이름' htmlFor='name'>
+      <Field label='카테고리 이름' htmlFor='name' errorMessage={errorMessage}>
         <Input
           id='name'
           name='name'
