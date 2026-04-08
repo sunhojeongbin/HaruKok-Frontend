@@ -5,7 +5,6 @@ export const RoutineItemSkeleton = () => {
 
       <div className='flex flex-col gap-1'>
         <div className='h-3 w-2/3 animate-pulse rounded bg-gray-200' />
-
         <div className='h-3 w-1/2 animate-pulse rounded bg-gray-200' />
       </div>
     </div>

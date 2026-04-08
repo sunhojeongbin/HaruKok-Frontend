@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import type { Repeat, RepeatType, Routine } from '../model/types';
 
 interface RoutineItemProps {
@@ -28,20 +30,25 @@ const formatRepeat = (repeatType: RepeatType, repeats: Repeat[]): string => {
 };
 
 export const RoutineItem = ({ routine }: RoutineItemProps) => {
+  const navigate = useNavigate();
+
   return (
-    <div className='flex flex-col gap-1 rounded-lg bg-[#f9fafb] p-4'>
+    <button
+      type='button'
+      onClick={() => navigate(`/routines/${routine.id}/edit`)}
+      className='flex flex-col gap-1 rounded-lg bg-[#f9fafb] p-4 text-left'
+    >
       <p className='text-sm font-medium'>{routine.content}</p>
 
       <div className='flex flex-col gap-1 text-xs text-[#b2b8c0]'>
         <span>
           {routine.startDate.replaceAll('-', '. ')} ~ {routine.endDate.replaceAll('-', '. ')}
         </span>
-
         <span>
           {formatRepeat(routine.repeatType, routine.repeats)}
           {routine.alarmTime && ` / ${routine.alarmTime.slice(0, 5)}`}
         </span>
       </div>
-    </div>
+    </button>
   );
 };
