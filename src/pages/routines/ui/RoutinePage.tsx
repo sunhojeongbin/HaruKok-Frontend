@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 
-import { SubLayout } from '../../../app/layouts';
-
 import { RoutineList } from '../../../widgets/routine-list/ui/RoutineList';
+
+import { SubLayout } from '../../../app/layouts';
 
 export const RoutinePage = () => {
   const navigate = useNavigate();

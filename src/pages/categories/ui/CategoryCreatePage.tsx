@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import { SubLayout } from '../../../app/layouts';
-
 import type { CategoryFormValues } from '../../../features/category/model/types';
 import { useCreateCategory } from '../../../features/category/model/useCreateCategory';
 import { CategoryForm } from '../../../features/category/ui/CategoryForm';
+
+import { SubLayout } from '../../../app/layouts';
 
 export const CategoryCreatePage = () => {
   const { mutate: create, isPending, error, reset } = useCreateCategory();

@@ -23,7 +23,7 @@ export const TodoItem = ({ todo, onClick }: TodoItemProps) => {
     <div className='flex items-start'>
       <TodoCheckbox checked={isChecked} disabled={isPending} onToggle={handleToggle} />
 
-      <button onClick={onClick} className='ml-2 flex flex-col items-start'>
+      <button type='button' onClick={onClick} className='ml-2 flex flex-col items-start'>
         <p className={`text-sm leading-6 ${isChecked ? 'text-[#b2b8c0] line-through' : ''}`}>
           {todo.content}
         </p>

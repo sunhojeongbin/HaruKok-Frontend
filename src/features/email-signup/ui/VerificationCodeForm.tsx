@@ -50,12 +50,12 @@ export const VerificationCodeForm = () => {
             <span className='underline'>{maskedEmail(email)}</span>로 인증번호를 전송했습니다.
           </>
         }
-        htmlFor='code'
+        htmlFor='signup-code'
         errorMessage={error?.message}
       >
         <Input
           type='number'
-          id='code'
+          id='signup-code'
           name='code'
           value={form.code}
           placeholder='인증번호 6자리를 입력해 주세요.'

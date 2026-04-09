@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
-import { SubLayout } from '../../../app/layouts';
-
 import { useSignupStore } from '../../../features/email-signup/model/store';
+
+import { SubLayout } from '../../../app/layouts';
 
 import {
   EmailForm,

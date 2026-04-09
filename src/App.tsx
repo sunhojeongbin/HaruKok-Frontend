@@ -1,9 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { AuthProvider, QueryProvider } from './app/providers';
-import { ProtectedRoute, PublicRoute } from './app/routes';
-import { MainLayout } from './app/layouts';
-
 import { Modal } from './shared/ui/modal/Modal';
 import { Toast } from './shared/ui/toast/Toast';
 
@@ -15,6 +11,10 @@ import { CalendarPage } from './pages/calendar/ui/CalendarPage';
 import { ProfilePage } from './pages/profile/ui/ProfilePage';
 import { CategoryCreatePage, CategoryEditPage, CategoryPage } from './pages/categories/ui';
 import { RoutinePage } from './pages/routines/ui/RoutinePage';
+
+import { AuthProvider, QueryProvider } from './app/providers';
+import { ProtectedRoute, PublicRoute } from './app/routes';
+import { MainLayout } from './app/layouts';
 
 function App() {
   return (

@@ -30,10 +30,10 @@ export const EmailLoginForm = () => {
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
       <div className='flex flex-col gap-4'>
-        <Field label='이메일' htmlFor='email'>
+        <Field label='이메일' htmlFor='login-email'>
           <Input
             type='email'
-            id='email'
+            id='login-email'
             name='email'
             value={form.email}
             placeholder='이메일을 입력해 주세요.'
@@ -42,9 +42,9 @@ export const EmailLoginForm = () => {
           />
         </Field>
 
-        <Field label='비밀번호' htmlFor='password' errorMessage={error?.message}>
+        <Field label='비밀번호' htmlFor='login-password' errorMessage={error?.message}>
           <PasswordInput
-            id='password'
+            id='login-password'
             name='password'
             value={form.password}
             placeholder='비밀번호를 입력해 주세요.'

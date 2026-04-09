@@ -35,10 +35,10 @@ export const EmailForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
-      <Field label='이메일' htmlFor='email' errorMessage={error?.message}>
+      <Field label='이메일' htmlFor='signup-email' errorMessage={error?.message}>
         <Input
           type='email'
-          id='email'
+          id='signup-email'
           name='email'
           value={form.email}
           placeholder='이메일을 입력해 주세요.'

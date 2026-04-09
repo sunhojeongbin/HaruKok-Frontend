@@ -26,9 +26,9 @@ const visibilityOptions: VisibilityOption[] = [
 export const CategoryForm = ({ values, errorMessage, onChange }: CategoryFormProps) => {
   return (
     <div className='flex flex-col gap-4'>
-      <Field label='카테고리 이름' htmlFor='name' errorMessage={errorMessage}>
+      <Field label='카테고리 이름' htmlFor='category-name' errorMessage={errorMessage}>
         <Input
-          id='name'
+          id='category-name'
           name='name'
           value={values.name}
           placeholder='카테고리 이름을 입력해 주세요.'

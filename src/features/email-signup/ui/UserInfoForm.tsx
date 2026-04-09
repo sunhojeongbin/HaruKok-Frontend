@@ -35,10 +35,10 @@ export const UserInfoForm = () => {
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
       <div className='flex flex-col gap-4'>
-        <Field label='이메일' htmlFor='email'>
+        <Field label='이메일' htmlFor='signup-info-email'>
           <Input
             type='email'
-            id='email'
+            id='signup-info-email'
             name='email'
             value={email}
             disabled
@@ -54,9 +54,9 @@ export const UserInfoForm = () => {
           />
         </Field>
 
-        <Field label='비밀번호' htmlFor='password'>
+        <Field label='비밀번호' htmlFor='signup-password'>
           <PasswordInput
-            id='password'
+            id='signup-password'
             name='password'
             value={form.password}
             placeholder='비밀번호를 입력해 주세요.'
@@ -65,9 +65,9 @@ export const UserInfoForm = () => {
           />
         </Field>
 
-        <Field label='이름' htmlFor='name' errorMessage={error?.message}>
+        <Field label='이름' htmlFor='signup-name' errorMessage={error?.message}>
           <Input
-            id='name'
+            id='signup-name'
             name='name'
             value={form.name}
             placeholder='이름을 입력해 주세요.'
