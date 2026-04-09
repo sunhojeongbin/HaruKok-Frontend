@@ -4,6 +4,7 @@ import { AuthProvider, QueryProvider } from './app/providers';
 import { ProtectedRoute, PublicRoute } from './app/routes';
 import { MainLayout } from './app/layouts';
 
+import { Modal } from './shared/ui/modal/Modal';
 import { Toast } from './shared/ui/toast/Toast';
 
 import { LoginPage } from './pages/login/ui/LoginPage';
@@ -38,6 +39,7 @@ function App() {
               <Route path='/routines' element={<RoutinePage />} />
             </Route>
           </Routes>
+          <Modal />
           <Toast />
         </AuthProvider>
       </BrowserRouter>
