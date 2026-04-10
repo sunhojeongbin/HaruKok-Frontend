@@ -7,6 +7,7 @@ import Calendar from './calendar.svg?react';
 import CheckCircle from './check-circle.svg?react';
 import Check from './check.svg?react';
 import Circle from './circle.svg?react';
+import Drag from './drag.svg?react';
 import EyeOff from './eye-off.svg?react';
 import Eye from './eye.svg?react';
 import Home from './home.svg?react';
@@ -31,6 +32,7 @@ export {
   CheckCircle,
   Check,
   Circle,
+  Drag,
   EyeOff,
   Eye,
   Home,
