@@ -23,7 +23,7 @@ export const CategoryItem = ({ category }: CategoryItemProps) => {
   return (
     <div
       ref={setNodeRef}
-      className={`flex items-center rounded-lg bg-[#f9fafb] p-4 ${isDragging ? 'z-10' : ''}`}
+      className={`flex items-center rounded-xl bg-[#f9fafb] p-4 ${isDragging ? 'z-10' : ''}`}
       style={{
         transform: CSS.Transform.toString(transform),
         transition,

@@ -26,7 +26,7 @@ export const StepIndicator = ({ step }: { step: Step }) => {
               <div
                 className={`flex h-7 w-7 items-center justify-center rounded-full text-sm font-semibold transition-colors ${
                   isCompleted || isActive
-                    ? 'bg-[#aad1f0] text-white'
+                    ? 'bg-[#1ea958] text-white'
                     : 'bg-[#f3f4f6] text-[#b2b8c0]'
                 } `}
               >
@@ -35,8 +35,8 @@ export const StepIndicator = ({ step }: { step: Step }) => {
               <span
                 className={`absolute -bottom-5 text-xs whitespace-nowrap transition-colors ${
                   isActive
-                    ? 'font-semibold text-[#313131]'
-                    : `font-medium ${isCompleted ? 'text-[#313131]' : 'text-[#b2b8c0]'}`
+                    ? 'font-semibold text-[#1a1a1a]'
+                    : `font-medium ${isCompleted ? 'text-[#1a1a1a]' : 'text-[#b2b8c0]'}`
                 }`}
               >
                 {step.label}
@@ -45,7 +45,7 @@ export const StepIndicator = ({ step }: { step: Step }) => {
 
             {index !== STEPS.length - 1 && (
               <div
-                className={`mx-2 h-0.5 flex-1 transition-colors ${isCompleted ? 'bg-[#aad1f0]' : 'bg-[#f3f4f6]'}`}
+                className={`mx-2 h-0.5 flex-1 transition-colors ${isCompleted ? 'bg-[#1ea958]' : 'bg-[#f3f4f6]'}`}
               />
             )}
           </div>

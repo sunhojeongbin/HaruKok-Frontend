@@ -60,7 +60,7 @@ export const BottomSheet = ({
                 type='button'
                 onClick={onConfirm}
                 aria-label='Confirm'
-                className='flex h-10 w-10 items-center justify-center rounded-full bg-[#aad1f0] shadow-sm'
+                className='flex h-10 w-10 items-center justify-center rounded-full bg-[#1ea958] shadow-sm'
               >
                 <Icon name='Check' color='white' />
               </button>

@@ -48,7 +48,7 @@ export const Modal = () => {
           <button
             type='button'
             onClick={handleConfirm}
-            className={`${buttonClasses} bg-[#aad1f0] font-semibold text-white`}
+            className={`${buttonClasses} bg-[#1ea958] font-semibold text-white`}
           >
             {confirmText}
           </button>

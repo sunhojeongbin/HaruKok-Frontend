@@ -43,9 +43,9 @@ export const CategoryForm = ({ values, errorMessage, onChange }: CategoryFormPro
               key={option.id}
               type='button'
               onClick={() => onChange('visibility', option.id)}
-              className={`flex flex-1 items-center gap-2 rounded-lg border p-4 transition-colors ${
+              className={`flex flex-1 items-center gap-2 rounded-xl border p-4 transition-colors ${
                 values.visibility === option.id
-                  ? 'border-[#aad1f0] bg-[#aad1f033] text-[#aad1f0]'
+                  ? 'border-[#1ea958] bg-[#1ea95833] text-[#1ea958]'
                   : 'border-transparent bg-[#f3f4f6] text-[#b2b8c0]'
               }`}
             >

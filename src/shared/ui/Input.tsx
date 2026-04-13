@@ -36,7 +36,7 @@ export const Input = ({
   };
 
   return (
-    <div className='flex h-12 w-full items-center gap-1 rounded-lg bg-[#f3f4f6] px-4 focus-within:bg-white focus-within:ring-1 focus-within:ring-[#aad1f0]'>
+    <div className='flex h-12 w-full items-center gap-1 rounded-xl bg-[#f3f4f6] px-4 focus-within:bg-white focus-within:ring-1 focus-within:ring-[#1ea958]'>
       <input
         ref={inputRef}
         type={type}

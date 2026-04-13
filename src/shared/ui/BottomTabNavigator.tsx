@@ -33,7 +33,7 @@ export const BottomTabNavigator = () => {
             key={tab.path}
             to={tab.path}
             className={`flex flex-1 flex-col items-center justify-center ${
-              isActive ? 'text-[#313131]' : 'text-[#b2b8c0]'
+              isActive ? 'text-[#1a1a1a]' : 'text-[#b2b8c0]'
             }`}
           >
             <div className='mb-0.5'>{tab.icon}</div>

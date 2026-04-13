@@ -7,11 +7,11 @@ const COLORS = [
   '#f3abb6',
   '#f9c449',
   '#cbe54e',
-  '#68b2a0',
+  '#1ea958',
   '#aad1f0',
   '#758eb7',
   '#ccabdb',
-  '#313131',
+  '#1a1a1a',
 ];
 
 export const ColorPicker = ({ value, onChange }: ColorPickerProps) => {

@@ -36,7 +36,7 @@ export const RoutineItem = ({ routine }: RoutineItemProps) => {
     <button
       type='button'
       onClick={() => navigate(`/routines/${routine.id}/edit`)}
-      className='flex flex-col gap-1 rounded-lg bg-[#f9fafb] p-4 text-left'
+      className='flex flex-col gap-1 rounded-xl bg-[#f9fafb] p-4 text-left'
     >
       <p className='text-sm font-medium'>{routine.content}</p>
 

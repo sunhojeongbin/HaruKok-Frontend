@@ -12,7 +12,7 @@ export const CategoryCreatePage = () => {
   const [form, setForm] = useState<CategoryFormValues>({
     name: '',
     visibility: 'FRIENDS',
-    color: '#aad1f0',
+    color: '#1ea958',
   });
 
   const handleChange = <K extends keyof CategoryFormValues>(

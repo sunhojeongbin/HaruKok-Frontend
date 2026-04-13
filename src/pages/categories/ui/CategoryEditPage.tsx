@@ -36,7 +36,7 @@ export const CategoryEditPage = () => {
   const [form, setForm] = useState<CategoryFormValues>({
     name: '',
     visibility: 'FRIENDS',
-    color: '#AAD1F0',
+    color: '#1ea958',
   });
 
   useEffect(() => {

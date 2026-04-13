@@ -8,7 +8,7 @@ export const PublicRoute = () => {
 
   if (!isInitialized)
     return (
-      <div className='flex h-screen items-center justify-center gap-1 bg-[#aad1f0] text-white'>
+      <div className='flex h-screen items-center justify-center gap-1 bg-[#1ea958] text-white'>
         <span className='h-1.5 w-1.5 animate-bounce rounded-full bg-current [animation-delay:-0.3s]' />
         <span className='h-1.5 w-1.5 animate-bounce rounded-full bg-current [animation-delay:-0.15s]' />
         <span className='h-1.5 w-1.5 animate-bounce rounded-full bg-current' />

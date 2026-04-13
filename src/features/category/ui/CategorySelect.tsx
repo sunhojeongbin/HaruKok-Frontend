@@ -22,11 +22,11 @@ export const CategorySelect = ({ value, onChange }: CategorySelectProps) => {
       <button
         type='button'
         onClick={() => setIsOpen(true)}
-        className='flex h-12 w-full items-center gap-2 rounded-lg border px-4'
+        className='flex h-12 w-full items-center gap-2 rounded-xl border px-4'
         style={{
-          backgroundColor: selectedCategory?.color ? `${selectedCategory?.color}33` : '#aad1f033',
-          borderColor: isOpen ? selectedCategory?.color || '#aad1f0' : 'transparent',
-          color: selectedCategory?.color || '#aad1f0',
+          backgroundColor: selectedCategory?.color ? `${selectedCategory?.color}33` : '#1ea95833',
+          borderColor: isOpen ? selectedCategory?.color || '#1ea958' : 'transparent',
+          color: selectedCategory?.color || '#1ea958',
         }}
       >
         <span className='min-w-0 flex-1 truncate text-left text-sm font-medium'>
@@ -39,7 +39,7 @@ export const CategorySelect = ({ value, onChange }: CategorySelectProps) => {
         <>
           <div onClick={() => setIsOpen(false)} className='fixed inset-0 z-10' />
 
-          <div className='absolute top-14 z-20 max-h-36 w-full overflow-y-auto rounded-lg bg-white shadow-md'>
+          <div className='absolute top-14 z-20 max-h-36 w-full overflow-y-auto rounded-xl bg-white shadow-md'>
             {activeCategories.map((category) => (
               <button
                 key={category.id}
