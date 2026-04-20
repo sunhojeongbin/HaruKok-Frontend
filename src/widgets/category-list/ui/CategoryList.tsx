@@ -13,8 +13,7 @@ import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 
 import { Label } from '../../../shared/ui';
 
-import type { Category } from '../../../entities/category/model/types';
-import { CategoryItem, CategoryItemSkeleton } from '../../../entities/category/ui';
+import { CategoryItem, CategoryItemSkeleton, type Category } from '../../../entities/category';
 
 interface CategoryListProps {
   categories: Category[];

@@ -5,12 +5,14 @@ import { useParams } from 'react-router-dom';
 import { useModalStore } from '../../../shared/ui/modal/store';
 import { Button } from '../../../shared/ui';
 
-import { categoryApi } from '../../../entities/category/api/categoryApi';
+import { categoryApi } from '../../../entities/category';
 
-import type { CategoryFormValues } from '../../../features/category/model/types';
-import { useDeleteCategory } from '../../../features/category/model/useDeleteCategory';
-import { useUpdateCategory } from '../../../features/category/model/useUpdateCategory';
-import { CategoryForm } from '../../../features/category/ui/CategoryForm';
+import {
+  CategoryForm,
+  useDeleteCategory,
+  useUpdateCategory,
+  type CategoryFormValues,
+} from '../../../features/category';
 
 import { SubLayout } from '../../../app/layouts';
 

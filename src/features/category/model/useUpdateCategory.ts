@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { toast } from '../../../shared/ui/toast/store';
 
-import type { UpdateCategoryRequest } from '../../../entities/category/api/types';
-import { categoryApi } from '../../../entities/category/api/categoryApi';
+import { categoryApi, type UpdateCategoryRequest } from '../../../entities/category';
 
 interface UseUpdateCategoryParams {
   categoryId: string;
@@ -21,8 +20,8 @@ export const useUpdateCategory = ({ categoryId }: UseUpdateCategoryParams) => {
 
       toast.success('카테고리가 수정됐어요.');
 
-      // 카테고리 관리 페이지로 뒤로 가기 방지
-      navigate('/categories', { replace: true });
+      // 카테고리 관리 페이지로 이동
+      navigate(-1);
     },
   });
 };

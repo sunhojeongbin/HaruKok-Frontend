@@ -1,15 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 
-import type { Category } from '../../../entities/category/model/types';
-import { useCategories } from '../../../entities/category/model/useCategories';
+import { useCategories, type Category } from '../../../entities/category';
 
-import { useReorderCategory } from '../../../features/category/model/useReorderCategory';
+import { useReorderCategory } from '../../../features/category';
 
-import { CategoryList } from '../../../widgets/category-list/ui/CategoryList';
+import { CategoryList } from '../../../widgets/category-list';
 
 import { SubLayout } from '../../../app/layouts';
 
-export const CategoryPage = () => {
+export const CategoriesPage = () => {
   const navigate = useNavigate();
 
   const { data: categories = [], isLoading } = useCategories();

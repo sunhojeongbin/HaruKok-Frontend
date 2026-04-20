@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { toast } from '../../../shared/ui/toast/store';
 
-import { categoryApi } from '../../../entities/category/api/categoryApi';
+import { categoryApi } from '../../../entities/category';
 
 export const useReorderCategory = () => {
   const queryClient = useQueryClient();

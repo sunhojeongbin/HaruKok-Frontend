@@ -1,4 +1,4 @@
-import type { CategoryVisibility } from '../../../entities/category/model/types';
+import type { CategoryVisibility } from '../../../entities/category';
 
 export interface CategoryFormValues {
   name: string;

@@ -1,7 +1,7 @@
 import type { IconName } from '../../../shared/ui/Icon';
 import { ColorPicker, Field, Icon, Input } from '../../../shared/ui';
 
-import type { CategoryVisibility } from '../../../entities/category/model/types';
+import type { CategoryVisibility } from '../../../entities/category';
 
 import type { CategoryFormValues } from '../model/types';
 

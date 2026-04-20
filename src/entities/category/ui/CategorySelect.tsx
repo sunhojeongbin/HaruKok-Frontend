@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Icon } from '../../../shared/ui';
 
-import { useCategories } from '../../../entities/category/model/useCategories';
+import { useCategories } from '../model/useCategories';
 
 interface CategorySelectProps {
   value: string;
