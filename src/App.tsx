@@ -9,8 +9,8 @@ import { EmailSignupPage } from './pages/email-signup/ui/EmailSignupPage';
 import { TodoPage } from './pages/todo/ui/TodoPage';
 import { CalendarPage } from './pages/calendar/ui/CalendarPage';
 import { ProfilePage } from './pages/profile/ui/ProfilePage';
-import { RoutinePage } from './pages/routines/ui/RoutinePage';
 import { CategoriesPage, CategoryCreatePage, CategoryEditPage } from './pages/categories';
+import { RoutineCreatePage, RoutineEditPage, RoutinesPage } from './pages/routines';
 
 import { AuthProvider, QueryProvider } from './app/providers';
 import { ProtectedRoute, PublicRoute } from './app/routes';
@@ -36,7 +36,9 @@ function App() {
               <Route path='/categories' element={<CategoriesPage />} />
               <Route path='/categories/new' element={<CategoryCreatePage />} />
               <Route path='/categories/:categoryId/edit' element={<CategoryEditPage />} />
-              <Route path='/routines' element={<RoutinePage />} />
+              <Route path='/routines' element={<RoutinesPage />} />
+              <Route path='/routines/new' element={<RoutineCreatePage />} />
+              <Route path='/routines/:routineId/edit' element={<RoutineEditPage />} />
             </Route>
           </Routes>
           <Modal />

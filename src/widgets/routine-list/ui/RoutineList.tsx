@@ -1,6 +1,5 @@
-import { useCategories } from '../../../entities/category/model/useCategories';
-import { useRoutines } from '../../../entities/routine/model/useRoutines';
-import { RoutineItem, RoutineItemSkeleton } from '../../../entities/routine/ui';
+import { useCategories } from '../../../entities/category';
+import { RoutineItem, RoutineItemSkeleton, useRoutines } from '../../../entities/routine';
 
 export const RoutineList = () => {
   const { data: categories = [], isLoading: isCategoryLoading } = useCategories();

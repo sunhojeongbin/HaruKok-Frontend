@@ -3,28 +3,25 @@ import { useNavigate } from 'react-router-dom';
 
 import { toast } from '../../../shared/ui/toast/store';
 
-import { routineApi } from '../../../entities/routine';
+import { routineApi, type UpdateRoutineRequest } from '../../../entities/routine';
 
-interface UseDeleteRoutineParams {
+interface UseUpdateRoutineParams {
   routineId: string;
 }
 
-export const useDeleteRoutine = ({ routineId }: UseDeleteRoutineParams) => {
+export const useUpdateRoutine = ({ routineId }: UseUpdateRoutineParams) => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
 
   return useMutation({
-    mutationFn: () => routineApi.delete(routineId),
+    mutationFn: (body: UpdateRoutineRequest) => routineApi.update(routineId, body),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['routines'] });
 
-      toast.success('루틴이 삭제됐어요.');
+      toast.success('루틴이 수정됐어요.');
 
       // 루틴 관리 페이지로 이동
       navigate(-1);
-    },
-    onError: (error) => {
-      toast.error(error.message || '루틴을 삭제하지 못했어요.');
     },
   });
 };
