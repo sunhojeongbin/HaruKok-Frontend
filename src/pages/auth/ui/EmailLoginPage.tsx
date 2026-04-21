@@ -1,6 +1,6 @@
 import { SubLayout } from '../../../app/layouts';
 
-import { EmailLoginForm } from '../../../features/email-login/ui/EmailLoginForm';
+import { EmailLoginForm } from '../../../features/email-login';
 
 export const EmailLoginPage = () => {
   return (

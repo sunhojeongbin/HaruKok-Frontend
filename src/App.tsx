@@ -3,10 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Modal } from './shared/ui/modal/Modal';
 import { Toast } from './shared/ui/toast/Toast';
 
-import { LoginPage } from './pages/login/ui/LoginPage';
-import { EmailLoginPage } from './pages/email-login/ui/EmailLoginPage';
-import { EmailSignupPage } from './pages/email-signup/ui/EmailSignupPage';
 import { TodoPage } from './pages/todo/ui/TodoPage';
+import { EmailLoginPage, EmailSignupPage, LoginPage } from './pages/auth';
 import { CalendarPage } from './pages/calendar/ui/CalendarPage';
 import { ProfilePage } from './pages/profile/ui/ProfilePage';
 import { CategoriesPage, CategoryCreatePage, CategoryEditPage } from './pages/categories';

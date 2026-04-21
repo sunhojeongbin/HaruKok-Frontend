@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { useModalStore } from '../../../shared/ui/modal/store';
 import { Button, Field, Input, PasswordInput } from '../../../shared/ui';
 
 import type { UserInfoFormValues } from '../model/types';
@@ -7,6 +8,7 @@ import { useSignupStore } from '../model/store';
 import { useSignup } from '../model/useSignup';
 
 export const UserInfoForm = () => {
+  const { open: openModal } = useModalStore();
   const { email, signupToken, setStep } = useSignupStore();
 
   const { mutate: signup, isPending, error, reset } = useSignup();
@@ -45,7 +47,14 @@ export const UserInfoForm = () => {
             rightElement={
               <button
                 type='button'
-                onClick={() => setStep('email')}
+                onClick={() =>
+                  openModal({
+                    title: '이메일을 변경할까요',
+                    description: '변경하면 새 이메일로 다시 인증해야 해요.',
+                    confirmText: '변경',
+                    onConfirm: () => setStep('email'),
+                  })
+                }
                 className='text-sm font-medium text-[#b2b8c0]'
               >
                 변경

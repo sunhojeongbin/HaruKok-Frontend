@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
-import { useAuthStore } from '../../entities/auth/model/store';
+import { useAuthStore } from '../../entities/auth';
 
 export const ProtectedRoute = () => {
   const isInitialized = useAuthStore((state) => state.isInitialized);

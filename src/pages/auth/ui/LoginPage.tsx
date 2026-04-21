@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Button } from '../../../shared/ui';
 
-import { KakaoLoginButton } from '../../../features/social-login/ui/KakaoLoginButton';
+import { KakaoLoginButton } from '../../../features/social-login';
 
 export const LoginPage = () => {
   const navigate = useNavigate();

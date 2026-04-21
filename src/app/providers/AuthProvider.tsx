@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 
-import { authApi } from '../../entities/auth/api/authApi';
-import { useAuthStore } from '../../entities/auth/model/store';
+import { authApi, useAuthStore } from '../../entities/auth';
 
 interface AuthProviderProps {
   children: React.ReactNode;

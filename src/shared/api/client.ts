@@ -1,12 +1,13 @@
 import axios, { AxiosError, type AxiosRequestConfig } from 'axios';
 
-import type { RefreshResponse } from '../../entities/auth/api/types';
-import { useAuthStore } from '../../entities/auth/model/store';
+import { useAuthStore, type RefreshResponse } from '../../entities/auth';
 
 import type { ApiResponse } from './types';
 
+const API_BASE_URL = '/api';
+
 export const instance = axios.create({
-  baseURL: 'http://localhost:3000/',
+  baseURL: API_BASE_URL,
   withCredentials: true,
 });
 
@@ -81,7 +82,7 @@ instance.interceptors.response.use(
 
     try {
       const { data } = await axios.post<ApiResponse<RefreshResponse>>(
-        'http://localhost:3000/auth/refresh',
+        `${API_BASE_URL}/auth/refresh`,
         {},
         { withCredentials: true },
       );
