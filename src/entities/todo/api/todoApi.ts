@@ -1,16 +1,16 @@
-import type { ApiResponse } from '../../../shared/api/types';
-import { instance } from '../../../shared/api/client';
+import { instance, type ApiResponse } from '@shared/api';
 
+import { toTodoList, toTodo } from '../model/mapper';
 import type {
   CreateTodoRequest,
   DeleteTodoResponse,
   RepeatNextTodoItem,
   RepeatNextTodoRequest,
   TodoResponse,
+  TodoSearchItem,
   ToggleTodoResponse,
   UpdateTodoRequest,
 } from './types';
-import { toTodoList, toTodo } from '../model/mapper';
 
 export const todoApi = {
   create: async (body: CreateTodoRequest) => {
@@ -25,6 +25,14 @@ export const todoApi = {
     });
 
     return toTodoList(data.data);
+  },
+
+  search: async (keyword: string) => {
+    const { data } = await instance.get<ApiResponse<TodoSearchItem[]>>('/todos/search', {
+      params: { keyword },
+    });
+
+    return data.data;
   },
 
   getDetail: async (todoId: string) => {

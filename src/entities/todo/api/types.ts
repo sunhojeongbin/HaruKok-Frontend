@@ -19,6 +19,11 @@ export interface CreateTodoRequest {
   todoDate: string;
 }
 
+export interface TodoSearchItem {
+  todoDate: string;
+  content: string;
+}
+
 export interface UpdateTodoRequest {
   ctgId?: string;
   content?: string;
