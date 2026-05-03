@@ -1,6 +1,6 @@
-import type { ApiResponse } from '../../../shared/api/types';
-import { instance } from '../../../shared/api/client';
+import { instance, type ApiResponse } from '@shared/api';
 
+import { toCategory, toCategoryList } from '../model/mapper';
 import type {
   CategoryResponse,
   CreateCategoryRequest,
@@ -9,41 +9,40 @@ import type {
   ReorderCategoryRequest,
   UpdateCategoryRequest,
 } from './types';
-import { toCategory, toCategoryList } from '../model/mapper';
 
 export const categoryApi = {
   create: async (body: CreateCategoryRequest) => {
-    const { data } = await instance.post<ApiResponse<CategoryResponse>>('/ctg', body);
+    const { data } = await instance.post<ApiResponse<CategoryResponse>>('/ctgs', body);
 
     return data.data;
   },
 
   getList: async () => {
-    const { data } = await instance.get<ApiResponse<CategoryResponse[]>>('/ctg');
+    const { data } = await instance.get<ApiResponse<CategoryResponse[]>>('/ctgs');
 
     return toCategoryList(data.data);
   },
 
   getDetail: async (ctgId: string) => {
-    const { data } = await instance.get<ApiResponse<CategoryResponse>>(`/ctg/${ctgId}`);
+    const { data } = await instance.get<ApiResponse<CategoryResponse>>(`/ctgs/${ctgId}`);
 
     return toCategory(data.data);
   },
 
   update: async (ctgId: string, body: UpdateCategoryRequest) => {
-    const { data } = await instance.patch<ApiResponse<CategoryResponse>>(`/ctg/${ctgId}`, body);
+    const { data } = await instance.patch<ApiResponse<CategoryResponse>>(`/ctgs/${ctgId}`, body);
 
     return data.data;
   },
 
   delete: async (ctgId: string) => {
-    const { data } = await instance.delete<ApiResponse<DeleteCategoryResponse>>(`/ctg/${ctgId}`);
+    const { data } = await instance.delete<ApiResponse<DeleteCategoryResponse>>(`/ctgs/${ctgId}`);
 
     return data.data;
   },
 
   reorder: async (body: ReorderCategoryRequest) => {
-    const { data } = await instance.patch<ApiResponse<ReorderCategoryItem[]>>('/ctg/order', body);
+    const { data } = await instance.patch<ApiResponse<ReorderCategoryItem[]>>('/ctgs/orders', body);
 
     return data.data;
   },
