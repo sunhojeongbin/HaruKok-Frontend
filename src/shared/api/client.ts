@@ -1,6 +1,8 @@
 import axios, { AxiosError, type AxiosRequestConfig } from 'axios';
 
-import { useAuthStore, type RefreshResponse } from '../../entities/auth';
+import { translate } from '@shared/lib/i18n';
+
+import { useAuthStore, type RefreshResponse } from '@entities/auth';
 
 import type { ApiResponse } from './types';
 
@@ -53,7 +55,7 @@ instance.interceptors.response.use(
       return Promise.reject(
         new Error(
           (error as AxiosError<{ message: string }>).response?.data?.message ??
-            '문제가 발생했습니다. 잠시 후 다시 시도해 주세요.',
+            translate('common.error'),
         ),
       );
     }
@@ -103,7 +105,7 @@ instance.interceptors.response.use(
 
       useAuthStore.getState().logout();
 
-      return Promise.reject(new Error('세션이 만료되었습니다. 다시 로그인해 주세요.'));
+      return Promise.reject(new Error(translate('common.sessionExpired')));
     } finally {
       isRefreshing = false;
     }

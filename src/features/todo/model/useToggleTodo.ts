@@ -1,7 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import type { Todo } from '../../../entities/todo/model/types';
-import { todoApi } from '../../../entities/todo/api/todoApi';
+import { todoApi, type Todo } from '@entities/todo';
 
 interface UseToggleTodoParams {
   yearMonth: string;

@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { todoApi } from '../../../entities/todo/api/todoApi';
+import { todoApi } from '@entities/todo';
 
 interface UseCreateTodoParams {
   yearMonth: string;

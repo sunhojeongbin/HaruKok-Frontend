@@ -1,9 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
-import { toast } from '../../../shared/ui/toast/store';
+import { translate } from '@shared/lib/i18n';
+import { toast } from '@shared/ui/toast/store';
 
-import { categoryApi, type UpdateCategoryRequest } from '../../../entities/category';
+import { categoryApi, type UpdateCategoryRequest } from '@entities/category';
 
 interface UseUpdateCategoryParams {
   categoryId: string;
@@ -18,7 +19,7 @@ export const useUpdateCategory = ({ categoryId }: UseUpdateCategoryParams) => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['categories'] });
 
-      toast.success('카테고리가 수정됐어요.');
+      toast.success(translate('category.updated'));
 
       // 카테고리 관리 페이지로 이동
       navigate(-1);
