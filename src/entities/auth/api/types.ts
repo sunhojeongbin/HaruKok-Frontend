@@ -6,6 +6,14 @@ export interface SendEmailResponse {
   ok: boolean;
 }
 
+export interface ResendEmailRequest {
+  email: string;
+}
+
+export interface ResendEmailResponse {
+  ok: boolean;
+}
+
 export interface VerifyEmailRequest {
   email: string;
   code: string;
@@ -14,6 +22,24 @@ export interface VerifyEmailRequest {
 export interface VerifyEmailResponse {
   ok: boolean;
   signupToken: string;
+}
+
+export interface SendTempPasswordRequest {
+  email: string;
+}
+
+export interface SendTempPasswordResponse {
+  ok: boolean;
+}
+
+export interface ResetPasswordRequest {
+  email: string;
+  temporaryPassword: string;
+  newPassword: string;
+}
+
+export interface ResetPasswordResponse {
+  ok: boolean;
 }
 
 export interface SignupRequest {
@@ -53,4 +79,25 @@ export interface MeResponse {
   id: string;
   email: string;
   name: string;
+}
+
+export interface WithdrawResponse {
+  ok: boolean;
+}
+
+export interface UpdatePasswordRequest {
+  currentPassword: string;
+  newPassword: string;
+}
+
+export interface UpdatePasswordResponse {
+  ok: boolean;
+}
+
+export interface CheckPasswordRequest {
+  password: string;
+}
+
+export interface CheckPasswordResponse {
+  matched: boolean;
 }
