@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
 import { translate } from '@shared/lib/i18n';
-import { toast } from '@shared/ui/toast/store';
+import { toast } from '@shared/ui/toast';
 
 import { categoryApi } from '@entities/category';
 

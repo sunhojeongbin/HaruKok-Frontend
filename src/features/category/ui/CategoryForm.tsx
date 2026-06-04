@@ -1,7 +1,8 @@
-import type { IconName } from '../../../shared/ui/Icon';
-import { ColorPicker, Field, Icon, Input } from '../../../shared/ui';
+import { useTranslation } from '@shared/lib/i18n';
+import { ColorPicker, Field, Icon, Input } from '@shared/ui';
+import type { IconName } from '@shared/ui/Icon';
 
-import type { CategoryVisibility } from '../../../entities/category';
+import type { CategoryVisibility } from '@entities/category';
 
 import type { CategoryFormValues } from '../model/types';
 
@@ -14,29 +15,41 @@ interface CategoryFormProps {
 interface VisibilityOption {
   id: CategoryVisibility;
   icon: IconName;
-  label: string;
-  description: string;
+  labelKey: 'category.friends' | 'category.private';
+  descriptionKey: 'category.friendsDescription' | 'category.privateDescription';
 }
 
 const visibilityOptions: VisibilityOption[] = [
-  { id: 'FRIENDS', icon: 'People', label: '친구 공개', description: '친구만 볼 수 있어요.' },
-  { id: 'PRIVATE', icon: 'Lock', label: '나만 보기', description: '나만 볼 수 있어요.' },
+  {
+    id: 'FRIENDS',
+    icon: 'People',
+    labelKey: 'category.friends',
+    descriptionKey: 'category.friendsDescription',
+  },
+  {
+    id: 'PRIVATE',
+    icon: 'Lock',
+    labelKey: 'category.private',
+    descriptionKey: 'category.privateDescription',
+  },
 ];
 
 export const CategoryForm = ({ values, errorMessage, onChange }: CategoryFormProps) => {
+  const { t } = useTranslation();
+
   return (
     <div className='flex flex-col gap-4'>
-      <Field label='카테고리 이름' htmlFor='category-name' errorMessage={errorMessage}>
+      <Field label={t('category.name')} htmlFor='category-name' errorMessage={errorMessage}>
         <Input
           id='category-name'
           name='name'
           value={values.name}
-          placeholder='카테고리 이름을 입력해 주세요.'
+          placeholder={t('category.namePlaceholder')}
           onChange={(e) => onChange('name', e.target.value)}
         />
       </Field>
 
-      <Field label='공개 설정'>
+      <Field label={t('category.visibility')}>
         <div className='flex gap-3'>
           {visibilityOptions.map((option) => (
             <button
@@ -45,22 +58,22 @@ export const CategoryForm = ({ values, errorMessage, onChange }: CategoryFormPro
               onClick={() => onChange('visibility', option.id)}
               className={`flex flex-1 items-center gap-2 rounded-xl border p-4 transition-colors ${
                 values.visibility === option.id
-                  ? 'border-[#1ea958] bg-[#1ea95833] text-[#1ea958]'
-                  : 'border-transparent bg-[#f3f4f6] text-[#b2b8c0]'
+                  ? 'border-app-primary bg-app-primary-soft text-app-primary'
+                  : 'bg-app-muted text-app-text-muted border-transparent'
               }`}
             >
               <Icon name={option.icon} size={20} />
 
               <div className='flex flex-col items-start'>
-                <span className='text-sm font-medium'>{option.label}</span>
-                <span className='text-xs'>{option.description}</span>
+                <span className='text-sm font-medium'>{t(option.labelKey)}</span>
+                <span className='text-xs'>{t(option.descriptionKey)}</span>
               </div>
             </button>
           ))}
         </div>
       </Field>
 
-      <Field label='색상'>
+      <Field label={t('category.color')}>
         <ColorPicker value={values.color} onChange={(color) => onChange('color', color)} />
       </Field>
     </div>

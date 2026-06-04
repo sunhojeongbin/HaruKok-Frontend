@@ -20,10 +20,10 @@ export const Button = ({
 }: ButtonProps) => {
   const buttonClasses = {
     root: 'flex h-12 w-full items-center justify-center rounded-xl font-medium',
-    solid: 'bg-[#1ea958] text-white',
-    neutral: 'bg-[#f3f4f6]',
-    filled: 'bg-[#1ea95833] text-[#1ea958]',
-    danger: 'bg-[#f3f4f6] text-[#f04452]',
+    solid: 'bg-app-primary text-app-primary-foreground',
+    neutral: 'bg-app-muted',
+    filled: 'bg-app-primary-soft text-app-primary',
+    danger: 'bg-app-muted text-app-danger',
   };
 
   return (
@@ -31,7 +31,7 @@ export const Button = ({
       type={type}
       onClick={onClick}
       disabled={disabled || loading}
-      className={`${buttonClasses.root} ${disabled ? 'cursor-not-allowed bg-[#edf0f7] text-[#b2b8c0]' : buttonClasses[variant]}`}
+      className={`${buttonClasses.root} ${disabled ? 'bg-app-disabled text-app-text-muted cursor-not-allowed' : buttonClasses[variant]}`}
     >
       {loading ? (
         <span className='flex gap-1'>

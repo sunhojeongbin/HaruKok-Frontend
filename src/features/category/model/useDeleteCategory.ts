@@ -1,9 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
-import { toast } from '../../../shared/ui/toast/store';
+import { translate } from '@shared/lib/i18n';
+import { toast } from '@shared/ui/toast';
 
-import { categoryApi } from '../../../entities/category';
+import { categoryApi } from '@entities/category';
 
 interface UseDeleteCategoryParams {
   categoryId: string;
@@ -18,13 +19,13 @@ export const useDeleteCategory = ({ categoryId }: UseDeleteCategoryParams) => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['categories'] });
 
-      toast.success('카테고리가 삭제됐어요.');
+      toast.success(translate('category.deleted'));
 
       // 카테고리 관리 페이지로 이동
       navigate(-1);
     },
     onError: (error) => {
-      toast.error(error.message || '카테고리를 삭제하지 못했어요.');
+      toast.error(error.message || translate('category.deleteError'));
     },
   });
 };

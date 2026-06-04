@@ -1,30 +1,33 @@
 import { Link, useLocation } from 'react-router-dom';
 
+import { useTranslation } from '../lib/i18n';
+
 import { Icon } from './Icon';
 
 const tabs = [
   {
-    label: '홈',
+    labelKey: 'tabs.home',
     path: '/todo',
     icon: <Icon name='Home' />,
   },
+  // {
+  //   labelKey: 'tabs.calendar',
+  //   path: '/calendar',
+  //   icon: <Icon name='Calendar' />,
+  // },
   {
-    label: '캘린더',
-    path: '/calendar',
-    icon: <Icon name='Calendar' />,
-  },
-  {
-    label: '프로필',
+    labelKey: 'tabs.profile',
     path: '/profile',
     icon: <Icon name='Profile' />,
   },
-];
+] as const;
 
 export const BottomTabNavigator = () => {
+  const { t } = useTranslation();
   const location = useLocation();
 
   return (
-    <nav className='flex h-14 shrink-0 justify-around border-t-[0.5px] border-gray-200 bg-white'>
+    <nav className='border-app-border bg-app-surface flex h-14 shrink-0 justify-around border-t-[0.5px]'>
       {tabs.map((tab) => {
         const isActive = location.pathname.startsWith(tab.path);
 
@@ -33,11 +36,11 @@ export const BottomTabNavigator = () => {
             key={tab.path}
             to={tab.path}
             className={`flex flex-1 flex-col items-center justify-center ${
-              isActive ? 'text-[#1a1a1a]' : 'text-[#b2b8c0]'
+              isActive ? 'text-app-text' : 'text-app-text-muted'
             }`}
           >
             <div className='mb-0.5'>{tab.icon}</div>
-            <span className='text-xs font-medium'>{tab.label}</span>
+            <span className='text-xs font-medium'>{t(tab.labelKey)}</span>
           </Link>
         );
       })}

@@ -1,4 +1,4 @@
-import { Icon } from '../../../shared/ui';
+import { Icon } from '@shared/ui';
 
 interface TodoCheckboxProps {
   checked: boolean;
@@ -12,9 +12,9 @@ export const TodoCheckbox = ({ checked, disabled, onToggle }: TodoCheckboxProps)
       type='button'
       onClick={onToggle}
       disabled={disabled}
-      className='flex h-6 w-6 items-center justify-center'
+      className='flex h-7 w-7 items-center justify-center'
     >
-      <Icon name={checked ? 'CheckCircle' : 'Circle'} />
+      <Icon name={checked ? 'CheckCircle' : 'Circle'} size={28} />
     </button>
   );
 };

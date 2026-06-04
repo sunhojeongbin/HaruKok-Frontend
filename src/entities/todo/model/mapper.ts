@@ -1,4 +1,5 @@
 import type { TodoResponse } from '../api/types';
+
 import type { Todo } from './types';
 
 export const toTodo = (res: TodoResponse): Todo => {

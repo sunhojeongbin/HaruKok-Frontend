@@ -1,14 +1,17 @@
 import { useNavigate } from 'react-router-dom';
 
-import { useCategories, type Category } from '../../../entities/category';
+import { useTranslation } from '@shared/lib/i18n';
 
-import { useReorderCategory } from '../../../features/category';
+import { useCategories, type Category } from '@entities/category';
 
-import { CategoryList } from '../../../widgets/category-list';
+import { useReorderCategory } from '@features/category';
 
-import { SubLayout } from '../../../app/layouts';
+import { CategoryList } from '@widgets/category-list';
+
+import { SubLayout } from '@app/layouts';
 
 export const CategoriesPage = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const { data: categories = [], isLoading } = useCategories();
@@ -19,7 +22,7 @@ export const CategoriesPage = () => {
   };
 
   return (
-    <SubLayout title='카테고리 관리' onPlus={() => navigate('/categories/new')}>
+    <SubLayout title={t('category.management')} onPlus={() => navigate('/categories/new')}>
       <CategoryList categories={categories} isLoading={isLoading} onReorder={handleReorder} />
     </SubLayout>
   );

@@ -1,11 +1,13 @@
 import { useState } from 'react';
 
-import { Button, Field, Input, PasswordInput } from '../../../shared/ui';
+import { useTranslation } from '@shared/lib/i18n';
+import { Button, Field, Input, PasswordInput } from '@shared/ui';
 
-import type { EmailLoginFormValues } from '../model/types';
 import { useLogin } from '../model/useLogin';
+import type { EmailLoginFormValues } from '../model/types';
 
 export const EmailLoginForm = () => {
+  const { t } = useTranslation();
   const { mutate: login, isPending, error, reset } = useLogin();
 
   const [form, setForm] = useState<EmailLoginFormValues>({
@@ -30,31 +32,31 @@ export const EmailLoginForm = () => {
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
       <div className='flex flex-col gap-4'>
-        <Field label='이메일' htmlFor='login-email'>
+        <Field label={t('auth.email')} htmlFor='login-email'>
           <Input
             type='email'
             id='login-email'
             name='email'
             value={form.email}
-            placeholder='이메일을 입력해 주세요.'
+            placeholder={t('auth.emailPlaceholder')}
             clearable
             onChange={handleChange}
           />
         </Field>
 
-        <Field label='비밀번호' htmlFor='login-password' errorMessage={error?.message}>
+        <Field label={t('auth.password')} htmlFor='login-password' errorMessage={error?.message}>
           <PasswordInput
             id='login-password'
             name='password'
             value={form.password}
-            placeholder='비밀번호를 입력해 주세요.'
+            placeholder={t('auth.passwordPlaceholder')}
             onChange={handleChange}
           />
         </Field>
       </div>
 
       <Button type='submit' disabled={!form.email || !form.password} loading={isPending}>
-        로그인
+        {t('auth.login')}
       </Button>
     </form>
   );

@@ -1,4 +1,4 @@
-import { TodoItemSkeleton } from '../../../entities/todo/ui/TodoItemSkeleton';
+import { TodoItemSkeleton } from '@entities/todo';
 
 import { MAX_VISIBLE_TABS } from '../model/constants';
 
@@ -9,7 +9,7 @@ export const TodoListSkeleton = () => {
         {Array.from({ length: MAX_VISIBLE_TABS }).map((_, index) => (
           <div
             key={index}
-            className='h-8 animate-pulse rounded-t-lg bg-gray-200'
+            className='bg-app-skeleton h-8 animate-pulse rounded-t-lg'
             style={{
               width: `calc((100% - 0.25rem * ${MAX_VISIBLE_TABS - 1}) / ${MAX_VISIBLE_TABS})`,
             }}
@@ -17,7 +17,7 @@ export const TodoListSkeleton = () => {
         ))}
       </div>
 
-      <div className='flex min-h-0 flex-1 flex-col gap-2 rounded-b-lg bg-white p-4'>
+      <div className='bg-app-surface flex min-h-0 flex-1 flex-col gap-2 rounded-b-lg p-4'>
         {Array.from({ length: 3 }).map((_, index) => (
           <TodoItemSkeleton key={index} />
         ))}

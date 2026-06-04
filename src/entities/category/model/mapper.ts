@@ -1,4 +1,5 @@
 import type { CategoryResponse } from '../api/types';
+
 import type { Category } from './types';
 
 export const toCategory = (res: CategoryResponse): Category => {

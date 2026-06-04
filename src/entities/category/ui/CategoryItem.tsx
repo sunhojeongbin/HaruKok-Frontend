@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
-import { Icon } from '../../../shared/ui';
+import { useTranslation } from '@shared/lib/i18n';
+import { Icon } from '@shared/ui';
 
 import type { Category } from '../model/types';
 
@@ -12,6 +13,7 @@ interface CategoryItemProps {
 }
 
 export const CategoryItem = ({ category }: CategoryItemProps) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const { setNodeRef, attributes, listeners, transform, transition, isDragging } = useSortable({
@@ -23,7 +25,7 @@ export const CategoryItem = ({ category }: CategoryItemProps) => {
   return (
     <div
       ref={setNodeRef}
-      className={`flex items-center rounded-xl bg-[#f9fafb] p-4 ${isDragging ? 'z-10' : ''}`}
+      className={`bg-app-surface-muted flex items-center rounded-xl p-4 ${isDragging ? 'z-10' : ''}`}
       style={{
         transform: CSS.Transform.toString(transform),
         transition,
@@ -42,9 +44,9 @@ export const CategoryItem = ({ category }: CategoryItemProps) => {
           <span className='truncate text-sm font-medium'>{category.name}</span>
         </div>
 
-        <div className='ml-5 flex items-center gap-1 text-xs text-[#b2b8c0]'>
+        <div className='text-app-text-muted ml-5 flex items-center gap-1 text-xs'>
           <Icon name={isFriends ? 'People' : 'Lock'} size={14} />
-          <span>{isFriends ? '친구 공개' : '나만 보기'}</span>
+          <span>{isFriends ? t('category.friends') : t('category.private')}</span>
         </div>
       </button>
 
@@ -54,7 +56,7 @@ export const CategoryItem = ({ category }: CategoryItemProps) => {
         {...listeners}
         className='shrink-0 cursor-grab touch-none active:cursor-grabbing'
       >
-        <Icon name='Drag' size={20} color='#b2b8c0' />
+        <Icon name='Drag' size={20} color='var(--app-color-text-muted)' />
       </button>
     </div>
   );

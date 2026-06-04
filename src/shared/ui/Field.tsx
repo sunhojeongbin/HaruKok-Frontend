@@ -14,7 +14,7 @@ export const Field = ({ children, label, htmlFor, errorMessage }: FieldProps) =>
 
       {children}
 
-      {errorMessage && <p className='text-xs text-[#f04452]'>{errorMessage}</p>}
+      {errorMessage && <p className='text-app-danger text-xs'>{errorMessage}</p>}
     </div>
   );
 };

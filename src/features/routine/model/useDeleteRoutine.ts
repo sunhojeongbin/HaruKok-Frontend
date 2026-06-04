@@ -1,9 +1,10 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 
-import { toast } from '../../../shared/ui/toast/store';
+import { translate } from '@shared/lib/i18n';
+import { toast } from '@shared/ui/toast';
 
-import { routineApi } from '../../../entities/routine';
+import { routineApi } from '@entities/routine';
 
 interface UseDeleteRoutineParams {
   routineId: string;
@@ -18,13 +19,13 @@ export const useDeleteRoutine = ({ routineId }: UseDeleteRoutineParams) => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['routines'] });
 
-      toast.success('루틴이 삭제됐어요.');
+      toast.success(translate('routine.deleted'));
 
       // 루틴 관리 페이지로 이동
       navigate(-1);
     },
     onError: (error) => {
-      toast.error(error.message || '루틴을 삭제하지 못했어요.');
+      toast.error(error.message || translate('routine.deleteError'));
     },
   });
 };

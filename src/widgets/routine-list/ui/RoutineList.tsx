@@ -1,7 +1,11 @@
-import { useCategories } from '../../../entities/category';
-import { RoutineItem, RoutineItemSkeleton, useRoutines } from '../../../entities/routine';
+import { useTranslation } from '@shared/lib/i18n';
+
+import { useCategories } from '@entities/category';
+import { RoutineItem, RoutineItemSkeleton, useRoutines } from '@entities/routine';
 
 export const RoutineList = () => {
+  const { t } = useTranslation();
+
   const { data: categories = [], isLoading: isCategoryLoading } = useCategories();
   const { data: routines = [], isLoading: isRoutineLoading } = useRoutines();
 
@@ -27,7 +31,7 @@ export const RoutineList = () => {
   if (routines.length === 0) {
     return (
       <div className='flex flex-1 items-center justify-center'>
-        <p className='text-sm font-medium text-[#b2b8c0]'>등록된 루틴이 없어요.</p>
+        <p className='text-app-text-muted text-sm font-medium'>{t('routine.empty')}</p>
       </div>
     );
   }

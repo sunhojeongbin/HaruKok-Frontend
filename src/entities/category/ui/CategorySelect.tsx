@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Icon } from '../../../shared/ui';
+import { Icon } from '@shared/ui';
 
 import { useCategories } from '../model/useCategories';
 
@@ -24,9 +24,13 @@ export const CategorySelect = ({ value, onChange }: CategorySelectProps) => {
         onClick={() => setIsOpen(true)}
         className='flex h-12 w-full items-center gap-2 rounded-xl border px-4'
         style={{
-          backgroundColor: selectedCategory?.color ? `${selectedCategory?.color}33` : '#1ea95833',
-          borderColor: isOpen ? selectedCategory?.color || '#1ea958' : 'transparent',
-          color: selectedCategory?.color || '#1ea958',
+          backgroundColor: selectedCategory?.color
+            ? `${selectedCategory?.color}33`
+            : 'var(--app-color-primary-soft)',
+          borderColor: isOpen
+            ? selectedCategory?.color || 'var(--app-color-primary)'
+            : 'transparent',
+          color: selectedCategory?.color || 'var(--app-color-primary)',
         }}
       >
         <span className='min-w-0 flex-1 truncate text-left text-sm font-medium'>
@@ -39,7 +43,7 @@ export const CategorySelect = ({ value, onChange }: CategorySelectProps) => {
         <>
           <div onClick={() => setIsOpen(false)} className='fixed inset-0 z-10' />
 
-          <div className='absolute top-14 z-20 max-h-36 w-full overflow-y-auto rounded-xl bg-white shadow-md'>
+          <div className='bg-app-surface absolute top-14 z-20 max-h-36 w-full overflow-y-auto rounded-xl shadow-md'>
             {activeCategories.map((category) => (
               <button
                 key={category.id}
@@ -48,8 +52,8 @@ export const CategorySelect = ({ value, onChange }: CategorySelectProps) => {
                   onChange(category.id);
                   setIsOpen(false);
                 }}
-                className={`flex h-12 w-full items-center gap-3 px-4 text-left text-sm hover:bg-gray-50 ${
-                  value === category.id ? 'bg-gray-100' : ''
+                className={`hover:bg-app-surface-muted flex h-12 w-full items-center gap-3 px-4 text-left text-sm ${
+                  value === category.id ? 'bg-app-muted' : ''
                 }`}
               >
                 <div

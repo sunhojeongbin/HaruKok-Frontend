@@ -1,8 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { toast } from '../../../shared/ui/toast/store';
+import { translate } from '@shared/lib/i18n';
+import { toast } from '@shared/ui/toast';
 
-import { categoryApi } from '../../../entities/category';
+import { categoryApi } from '@entities/category';
 
 export const useReorderCategory = () => {
   const queryClient = useQueryClient();
@@ -13,7 +14,7 @@ export const useReorderCategory = () => {
       queryClient.invalidateQueries({ queryKey: ['categories'] });
     },
     onError: (error) => {
-      toast.error(error.message || '카테고리 순서를 변경하지 못했어요.');
+      toast.error(error.message || translate('category.reorderError'));
     },
   });
 };

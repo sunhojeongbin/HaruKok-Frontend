@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { useTranslation } from '../lib/i18n';
+
 import { Icon } from './Icon';
 import { Input } from './Input';
 
@@ -22,6 +24,8 @@ export const PasswordInput = ({
   showValidation = false,
   onChange,
 }: PasswordInputProps) => {
+  const { t } = useTranslation();
+
   const [showPassword, setShowPassword] = useState(false);
 
   const isValid = (value: string) =>
@@ -45,7 +49,7 @@ export const PasswordInput = ({
               onMouseDown={(e) => e.preventDefault()}
               onClick={() => setShowPassword((prev) => !prev)}
             >
-              <Icon name={showPassword ? 'Eye' : 'EyeOff'} color='#b2b8c0' />
+              <Icon name={showPassword ? 'Eye' : 'EyeOff'} color='var(--app-color-text-muted)' />
             </button>
           )
         }
@@ -55,11 +59,11 @@ export const PasswordInput = ({
       {showValidation && (
         <p
           className={`flex items-center gap-1 text-xs ${
-            !value ? 'text-[#b2b8c0]' : isValid(value) ? 'text-[#48cc27]' : 'text-[#f04452]'
+            !value ? 'text-app-text-muted' : isValid(value) ? 'text-app-success' : 'text-app-danger'
           }`}
         >
           <Icon name={value && !isValid(value) ? 'X' : 'Check'} size={14} />
-          8~20자로 영문자, 숫자, 특수문자를 각 1자 이상 포함하여 입력해 주세요.
+          {t('password.validation')}
         </p>
       )}
     </div>

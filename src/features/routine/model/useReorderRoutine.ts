@@ -1,8 +1,9 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { toast } from '../../../shared/ui/toast/store';
+import { translate } from '@shared/lib/i18n';
+import { toast } from '@shared/ui/toast';
 
-import { routineApi } from '../../../entities/routine';
+import { routineApi } from '@entities/routine';
 
 export const useReorderRoutine = () => {
   const queryClient = useQueryClient();
@@ -13,7 +14,7 @@ export const useReorderRoutine = () => {
       queryClient.invalidateQueries({ queryKey: ['routines'] });
     },
     onError: (error) => {
-      toast.error(error.message || '루틴 순서를 변경하지 못했어요.');
+      toast.error(error.message || translate('routine.reorderError'));
     },
   });
 };

@@ -1,4 +1,5 @@
 import { useSignupStore } from '../model/store';
+
 import { EmailForm } from './EmailForm';
 import { StepIndicator } from './StepIndicator';
 import { UserInfoForm } from './UserInfoForm';

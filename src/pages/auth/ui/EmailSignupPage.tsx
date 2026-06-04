@@ -1,10 +1,14 @@
 import { useEffect } from 'react';
 
-import { SignupSteps, useSignupStore } from '../../../features/email-signup';
+import { useTranslation } from '@shared/lib/i18n';
 
-import { SubLayout } from '../../../app/layouts';
+import { SignupSteps, useSignupStore } from '@features/email-signup';
+
+import { SubLayout } from '@app/layouts';
 
 export const EmailSignupPage = () => {
+  const { t } = useTranslation();
+
   const { reset } = useSignupStore();
 
   useEffect(() => {
@@ -12,7 +16,7 @@ export const EmailSignupPage = () => {
   }, [reset]);
 
   return (
-    <SubLayout title='이메일 회원가입'>
+    <SubLayout title={t('auth.emailSignup')}>
       <SignupSteps />
     </SubLayout>
   );

@@ -11,9 +11,10 @@ import {
 import { arrayMove, SortableContext, verticalListSortingStrategy } from '@dnd-kit/sortable';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 
-import { Label } from '../../../shared/ui';
+import { useTranslation } from '@shared/lib/i18n';
+import { Label } from '@shared/ui';
 
-import { CategoryItem, CategoryItemSkeleton, type Category } from '../../../entities/category';
+import { CategoryItem, CategoryItemSkeleton, type Category } from '@entities/category';
 
 interface CategoryListProps {
   categories: Category[];
@@ -22,6 +23,8 @@ interface CategoryListProps {
 }
 
 export const CategoryList = ({ categories, isLoading, onReorder }: CategoryListProps) => {
+  const { t } = useTranslation();
+
   const sensors = useSensors(
     useSensor(PointerSensor, {
       activationConstraint: { distance: 8 },
@@ -65,7 +68,7 @@ export const CategoryList = ({ categories, isLoading, onReorder }: CategoryListP
   if (categories.length === 0) {
     return (
       <div className='flex flex-1 items-center justify-center'>
-        <p className='text-sm font-medium text-[#b2b8c0]'>등록된 카테고리가 없어요.</p>
+        <p className='text-app-text-muted text-sm font-medium'>{t('category.empty')}</p>
       </div>
     );
   }
@@ -84,7 +87,7 @@ export const CategoryList = ({ categories, isLoading, onReorder }: CategoryListP
               items={activeCategories.map((category) => category.id)}
               strategy={verticalListSortingStrategy}
             >
-              <Label>진행 중</Label>
+              <Label>{t('category.active')}</Label>
 
               <div className='flex flex-col gap-3'>
                 {activeCategories.map((category) => (
@@ -101,7 +104,7 @@ export const CategoryList = ({ categories, isLoading, onReorder }: CategoryListP
               items={endedCategories.map((category) => category.id)}
               strategy={verticalListSortingStrategy}
             >
-              <Label>종료</Label>
+              <Label>{t('category.ended')}</Label>
 
               <div className='flex flex-col gap-3'>
                 {endedCategories.map((category) => (

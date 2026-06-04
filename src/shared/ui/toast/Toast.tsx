@@ -1,6 +1,7 @@
-import type { ToastType } from './types';
-import { useToastStore } from './store';
 import { Icon } from '../Icon';
+
+import { useToastStore } from './store';
+import type { ToastType } from './types';
 
 const getIcon = (type: ToastType) => {
   switch (type) {
@@ -22,7 +23,7 @@ export const Toast = () => {
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
       }`}
     >
-      <div className='flex items-center gap-2 rounded-full bg-[#8c95a2] px-4 py-3 text-sm font-medium whitespace-nowrap text-white'>
+      <div className='bg-app-toast flex items-center gap-2 rounded-full px-4 py-3 text-sm font-medium whitespace-nowrap text-white'>
         {getIcon(type)}
         {message}
       </div>
