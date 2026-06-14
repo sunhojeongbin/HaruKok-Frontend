@@ -1,5 +1,5 @@
 type ButtonType = 'button' | 'submit' | 'reset';
-type ButtonVariant = 'solid' | 'neutral' | 'filled' | 'danger';
+type ButtonVariant = 'solid' | 'neutral' | 'outline' | 'danger';
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -22,7 +22,7 @@ export const Button = ({
     root: 'flex h-12 w-full items-center justify-center rounded-xl font-medium',
     solid: 'bg-app-primary text-app-primary-foreground',
     neutral: 'bg-app-muted',
-    filled: 'bg-app-primary-soft text-app-primary',
+    outline: 'text-app-primary border border-app-primary',
     danger: 'bg-app-muted text-app-danger',
   };
 

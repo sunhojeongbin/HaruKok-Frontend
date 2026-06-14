@@ -19,7 +19,7 @@ export const WelcomePage = () => {
       <div className='flex flex-col gap-8'>
         <section className='flex flex-col gap-4'>
           <Button onClick={() => navigate('/login/email')}>{t('auth.login')}</Button>
-          <Button variant='filled' onClick={() => navigate('/signup/email')}>
+          <Button variant='outline' onClick={() => navigate('/signup/email')}>
             {t('auth.signup')}
           </Button>
         </section>
