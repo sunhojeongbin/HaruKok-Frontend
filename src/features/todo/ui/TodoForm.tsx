@@ -1,9 +1,11 @@
 import { useId } from 'react';
 
-import { Field, Input } from '../../../shared/ui';
+import { useTranslation } from '@shared/lib/i18n';
+import { Field, Input } from '@shared/ui';
+
+import { CategorySelect } from '@entities/category';
 
 import type { TodoFormValues } from '../model/types';
-import { CategorySelect } from '../../category/ui/CategorySelect';
 
 interface TodoFormProps {
   values: TodoFormValues;
@@ -11,6 +13,8 @@ interface TodoFormProps {
 }
 
 export const TodoForm = ({ values, onChange }: TodoFormProps) => {
+  const { t } = useTranslation();
+
   const formId = useId();
   const contentId = `${formId}-content`;
   const memoId = `${formId}-memo`;
@@ -22,22 +26,22 @@ export const TodoForm = ({ values, onChange }: TodoFormProps) => {
         onChange={(categoryId) => onChange('categoryId', categoryId)}
       />
 
-      <Field label='할 일' htmlFor={contentId}>
+      <Field label={t('todo.content')} htmlFor={contentId}>
         <Input
           id={contentId}
           name='content'
           value={values.content}
-          placeholder='할 일을 입력해 주세요.'
+          placeholder={t('todo.contentPlaceholder')}
           onChange={(e) => onChange('content', e.target.value)}
         />
       </Field>
 
-      <Field label='메모' htmlFor={memoId}>
+      <Field label={t('todo.memo')} htmlFor={memoId}>
         <Input
           id={memoId}
           name='memo'
           value={values.memo}
-          placeholder='메모를 입력해 주세요.'
+          placeholder={t('todo.memoPlaceholder')}
           onChange={(e) => onChange('memo', e.target.value)}
         />
       </Field>

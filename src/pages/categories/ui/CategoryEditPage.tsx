@@ -2,21 +2,25 @@ import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 
-import { useModalStore } from '../../../shared/ui/modal/store';
-import { Button } from '../../../shared/ui';
+import { useTranslation } from '@shared/lib/i18n';
+import { CATEGORY_COLORS } from '@shared/theme';
+import { useModalStore } from '@shared/ui/modal';
+import { Button } from '@shared/ui';
 
-import { categoryApi } from '../../../entities/category';
+import { categoryApi } from '@entities/category';
 
 import {
   CategoryForm,
   useDeleteCategory,
   useUpdateCategory,
   type CategoryFormValues,
-} from '../../../features/category';
+} from '@features/category';
 
-import { SubLayout } from '../../../app/layouts';
+import { SubLayout } from '@app/layouts';
 
 export const CategoryEditPage = () => {
+  const { t } = useTranslation();
+
   const { categoryId = '' } = useParams();
 
   const { open: openModal } = useModalStore();
@@ -38,7 +42,7 @@ export const CategoryEditPage = () => {
   const [form, setForm] = useState<CategoryFormValues>({
     name: '',
     visibility: 'FRIENDS',
-    color: '#1ea958',
+    color: CATEGORY_COLORS[0],
   });
 
   useEffect(() => {
@@ -75,11 +79,11 @@ export const CategoryEditPage = () => {
     if (isUpdatePending || isDeletePending) return;
 
     openModal({
-      title: category.isEnded ? '카테고리를 재개할까요' : '카테고리를 종료할까요',
+      title: category.isEnded ? t('category.resumeTitle') : t('category.endTitle'),
       description: category.isEnded
-        ? '재개하면 이 카테고리에 다시 투두와 루틴을 추가할 수 있어요.'
-        : '종료하면 이 카테고리에는 더 이상 투두와 루틴을 추가할 수 없어요.',
-      confirmText: category.isEnded ? '재개' : '종료',
+        ? t('category.resumeDescription')
+        : t('category.endDescription'),
+      confirmText: category.isEnded ? t('category.resume') : t('category.end'),
       onConfirm: () => update({ isEnded: !category.isEnded }),
     });
   };
@@ -89,16 +93,15 @@ export const CategoryEditPage = () => {
     if (isUpdatePending || isDeletePending) return;
 
     openModal({
-      title: '카테고리를 삭제할까요',
-      description:
-        '삭제하면 이 카테고리에 포함된 투두와 루틴이 모두 삭제되며, 다시 복구할 수 없어요.',
-      confirmText: '삭제',
+      title: t('category.deleteTitle'),
+      description: t('category.deleteDescription'),
+      confirmText: t('common.delete'),
       onConfirm: () => deleteCategory(),
     });
   };
 
   return (
-    <SubLayout title='카테고리 수정' onSubmit={handleSubmit}>
+    <SubLayout title={t('category.edit')} onSubmit={handleSubmit}>
       <div className='flex flex-col gap-8'>
         <CategoryForm values={form} errorMessage={error?.message} onChange={handleChange} />
 
@@ -108,14 +111,14 @@ export const CategoryEditPage = () => {
             disabled={isUpdatePending || isDeletePending}
             onClick={handleDeleteCategory}
           >
-            삭제
+            {t('common.delete')}
           </Button>
           <Button
             variant='neutral'
             disabled={isUpdatePending || isDeletePending}
             onClick={handleUpdateCategory}
           >
-            {category?.isEnded ? '재개' : '종료'}
+            {category?.isEnded ? t('category.resume') : t('category.end')}
           </Button>
         </div>
       </div>

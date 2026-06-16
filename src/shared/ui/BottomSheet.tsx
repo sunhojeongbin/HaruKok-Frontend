@@ -7,6 +7,7 @@ interface BottomSheetProps {
   children: React.ReactNode;
   title?: string;
   showCloseButton?: boolean;
+  disabled?: boolean;
   onClose: () => void;
   onConfirm?: () => void;
 }
@@ -17,6 +18,7 @@ export const BottomSheet = ({
   children,
   title,
   showCloseButton = true,
+  disabled = false,
   onClose,
   onConfirm,
 }: BottomSheetProps) => {
@@ -26,7 +28,9 @@ export const BottomSheet = ({
     <>
       <div
         onClick={onClose}
-        className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 ease-out ${open ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+        className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 ease-out ${
+          open ? 'opacity-100' : 'pointer-events-none opacity-0'
+        }`}
       />
 
       <div
@@ -34,7 +38,9 @@ export const BottomSheet = ({
         aria-modal={open}
         aria-hidden={!open}
         aria-labelledby={titleId}
-        className={`fixed right-0 bottom-0 left-0 z-50 rounded-t-3xl bg-white transition-transform duration-300 ease-out ${open ? 'translate-y-0' : 'pointer-events-none translate-y-full'}`}
+        className={`bg-app-surface fixed right-0 bottom-0 left-0 z-50 rounded-t-3xl transition-transform duration-300 ease-out ${
+          open ? 'translate-y-0' : 'pointer-events-none translate-y-full'
+        }`}
       >
         <div className='grid grid-cols-3 items-center px-4 pt-4'>
           <div className='flex items-center'>
@@ -43,9 +49,9 @@ export const BottomSheet = ({
                 type='button'
                 onClick={onClose}
                 aria-label='Close'
-                className='flex h-10 w-10 items-center justify-center rounded-full bg-[#f3f4f6] shadow-sm'
+                className='bg-app-muted flex h-10 w-10 items-center justify-center rounded-full shadow-sm'
               >
-                <Icon name='X' color='#b2b8c0' />
+                <Icon name='X' color='var(--app-color-text-muted)' />
               </button>
             )}
           </div>
@@ -58,11 +64,12 @@ export const BottomSheet = ({
             {onConfirm && (
               <button
                 type='button'
+                disabled={disabled}
                 onClick={onConfirm}
                 aria-label='Confirm'
-                className='flex h-10 w-10 items-center justify-center rounded-full bg-[#1ea958] shadow-sm'
+                className='bg-app-primary disabled:bg-app-primary-soft flex h-10 w-10 items-center justify-center rounded-full shadow-sm disabled:cursor-not-allowed'
               >
-                <Icon name='Check' color='white' />
+                <Icon name='Check' color='var(--app-color-primary-foreground)' />
               </button>
             )}
           </div>

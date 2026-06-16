@@ -23,7 +23,7 @@ export const Toast = () => {
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
       }`}
     >
-      <div className='bg-app-toast flex items-center gap-2 rounded-full px-4 py-3 text-sm font-medium whitespace-nowrap text-white'>
+      <div className='bg-app-toast text-app-toast-foreground flex max-w-[340px] items-center gap-2 rounded-full px-4 py-3 text-sm font-medium whitespace-nowrap'>
         {getIcon(type)}
         {message}
       </div>

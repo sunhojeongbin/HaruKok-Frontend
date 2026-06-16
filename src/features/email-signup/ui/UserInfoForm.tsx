@@ -1,13 +1,16 @@
 import { useState } from 'react';
 
-import { useModalStore } from '../../../shared/ui/modal/store';
-import { Button, Field, Input, PasswordInput } from '../../../shared/ui';
+import { useTranslation } from '@shared/lib/i18n';
+import { useModalStore } from '@shared/ui/modal';
+import { Button, Field, Input, PasswordInput } from '@shared/ui';
 
-import type { UserInfoFormValues } from '../model/types';
 import { useSignupStore } from '../model/store';
 import { useSignup } from '../model/useSignup';
+import type { UserInfoFormValues } from '../model/types';
 
 export const UserInfoForm = () => {
+  const { t } = useTranslation();
+
   const { open: openModal } = useModalStore();
   const { email, signupToken, setStep } = useSignupStore();
 
@@ -37,7 +40,7 @@ export const UserInfoForm = () => {
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
       <div className='flex flex-col gap-4'>
-        <Field label='이메일' htmlFor='signup-info-email'>
+        <Field label={t('auth.email')} htmlFor='signup-info-email'>
           <Input
             type='email'
             id='signup-info-email'
@@ -49,44 +52,44 @@ export const UserInfoForm = () => {
                 type='button'
                 onClick={() =>
                   openModal({
-                    title: '이메일을 변경할까요',
-                    description: '변경하면 새 이메일로 다시 인증해야 해요.',
-                    confirmText: '변경',
+                    title: t('auth.changeEmailTitle'),
+                    description: t('auth.changeEmailDescription'),
+                    confirmText: t('common.change'),
                     onConfirm: () => setStep('email'),
                   })
                 }
-                className='text-sm font-medium text-[#b2b8c0]'
+                className='text-app-text-muted text-sm font-medium'
               >
-                변경
+                {t('common.change')}
               </button>
             }
           />
         </Field>
 
-        <Field label='비밀번호' htmlFor='signup-password'>
+        <Field label={t('auth.password')} htmlFor='signup-password'>
           <PasswordInput
             id='signup-password'
             name='password'
             value={form.password}
-            placeholder='비밀번호를 입력해 주세요.'
+            placeholder={t('auth.passwordPlaceholder')}
             showValidation
             onChange={handleChange}
           />
         </Field>
 
-        <Field label='이름' htmlFor='signup-name' errorMessage={error?.message}>
+        <Field label={t('auth.name')} htmlFor='signup-name' errorMessage={error?.message}>
           <Input
             id='signup-name'
             name='name'
             value={form.name}
-            placeholder='이름을 입력해 주세요.'
+            placeholder={t('auth.namePlaceholder')}
             onChange={handleChange}
           />
         </Field>
       </div>
 
       <Button type='submit' disabled={!isValidPassword || !form.name} loading={isPending}>
-        회원가입
+        {t('auth.signup')}
       </Button>
     </form>
   );

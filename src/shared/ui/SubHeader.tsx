@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
-import { IconButton } from './IconButton';
+import { useTranslation } from '@shared/lib/i18n';
+import { IconButton } from '@shared/ui';
 
 interface SubHeaderProps {
   children: React.ReactNode;
@@ -10,6 +11,7 @@ interface SubHeaderProps {
 }
 
 export const SubHeader = ({ children, disabled, onPlus, onSubmit }: SubHeaderProps) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   return (
@@ -28,9 +30,9 @@ export const SubHeader = ({ children, disabled, onPlus, onSubmit }: SubHeaderPro
             type='button'
             onClick={onSubmit}
             disabled={disabled}
-            className='px-2 text-sm font-medium disabled:text-[#b2b8c0]'
+            className='disabled:text-app-text-muted px-2 text-sm font-medium'
           >
-            완료
+            {t('common.done')}
           </button>
         )}
       </div>

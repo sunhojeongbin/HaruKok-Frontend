@@ -1,20 +1,21 @@
 import { useState } from 'react';
 
-import {
-  CategoryForm,
-  useCreateCategory,
-  type CategoryFormValues,
-} from '../../../features/category';
+import { useTranslation } from '@shared/lib/i18n';
+import { CATEGORY_COLORS } from '@shared/theme';
 
-import { SubLayout } from '../../../app/layouts';
+import { CategoryForm, useCreateCategory, type CategoryFormValues } from '@features/category';
+
+import { SubLayout } from '@app/layouts';
 
 export const CategoryCreatePage = () => {
+  const { t } = useTranslation();
+
   const { mutate: create, isPending, error, reset } = useCreateCategory();
 
   const [form, setForm] = useState<CategoryFormValues>({
     name: '',
     visibility: 'FRIENDS',
-    color: '#1ea958',
+    color: CATEGORY_COLORS[0],
   });
 
   const handleChange = <K extends keyof CategoryFormValues>(
@@ -37,7 +38,7 @@ export const CategoryCreatePage = () => {
   };
 
   return (
-    <SubLayout title='카테고리 추가' disabled={isPending} onSubmit={handleSubmit}>
+    <SubLayout title={t('category.create')} disabled={isPending} onSubmit={handleSubmit}>
       <CategoryForm values={form} errorMessage={error?.message} onChange={handleChange} />
     </SubLayout>
   );

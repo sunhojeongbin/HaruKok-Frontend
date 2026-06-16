@@ -1,9 +1,19 @@
-import { useModalStore } from './store';
+import { useTranslation } from '@shared/lib/i18n';
 
-const buttonClasses = 'h-12 flex-1 rounded-xl text-[15px]';
+import { useModalStore } from './store';
+import type { ModalConfirmVariant } from './types';
+
+const buttonClasses = 'h-12 flex-1 rounded-xl text-[15px] font-semibold';
+const confirmVariantClasses: Record<ModalConfirmVariant, string> = {
+  primary: 'bg-app-primary text-app-primary-foreground',
+  danger: 'bg-app-danger text-app-danger-foreground',
+};
 
 export const Modal = () => {
-  const { isOpen, title, description, confirmText, onConfirm, close } = useModalStore();
+  const { t } = useTranslation();
+
+  const { isOpen, title, description, confirmText, confirmVariant, onConfirm, close } =
+    useModalStore();
 
   if (!isOpen) return null;
 
@@ -24,7 +34,7 @@ export const Modal = () => {
         aria-labelledby='modal-title'
         aria-describedby={description ? 'modal-description' : undefined}
         onClick={(e) => e.stopPropagation()}
-        className='flex w-[calc(100%-32px)] max-w-[340px] flex-col gap-6 rounded-2xl bg-white p-6'
+        className='bg-app-surface flex w-[calc(100%-32px)] max-w-[340px] flex-col gap-6 rounded-2xl p-6'
       >
         <div className='flex flex-col gap-2'>
           <p id='modal-title' className='font-semibold'>
@@ -41,16 +51,16 @@ export const Modal = () => {
           <button
             type='button'
             onClick={close}
-            className={`${buttonClasses} bg-[#f3f4f6] font-medium`}
+            className={`${buttonClasses} bg-app-muted font-medium`}
           >
-            취소
+            {t('common.cancel')}
           </button>
           <button
             type='button'
             onClick={handleConfirm}
-            className={`${buttonClasses} bg-[#1ea958] font-semibold text-white`}
+            className={` ${buttonClasses} ${confirmVariantClasses[confirmVariant ?? 'primary']}`}
           >
-            {confirmText}
+            {confirmText ?? t('common.confirm')}
           </button>
         </div>
       </div>

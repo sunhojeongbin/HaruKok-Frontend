@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { useTranslation } from '@shared/lib/i18n';
-import { Button, Field, Input, PasswordInput } from '@shared/ui';
+import { Button, EmailInput, Field, PasswordInput } from '@shared/ui';
 
 import { useLogin } from '../model/useLogin';
 import type { EmailLoginFormValues } from '../model/types';
@@ -33,8 +33,7 @@ export const EmailLoginForm = () => {
     <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
       <div className='flex flex-col gap-4'>
         <Field label={t('auth.email')} htmlFor='login-email'>
-          <Input
-            type='email'
+          <EmailInput
             id='login-email'
             name='email'
             value={form.email}

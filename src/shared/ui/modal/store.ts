@@ -1,21 +1,24 @@
 import { create } from 'zustand';
 
-import type { ModalStore } from './types';
+import type { ModalState, ModalStore } from './types';
 
-export const useModalStore = create<ModalStore>((set) => ({
+const initialModalState: ModalState = {
   isOpen: false,
   title: '',
   description: undefined,
-  confirmText: '확인',
+  confirmText: undefined,
+  confirmVariant: 'primary',
   onConfirm: undefined,
+};
 
-  open: (options) => set({ isOpen: true, ...options }),
-  close: () =>
+export const useModalStore = create<ModalStore>((set) => ({
+  ...initialModalState,
+
+  open: (options) =>
     set({
-      isOpen: false,
-      title: '',
-      description: undefined,
-      confirmText: '확인',
-      onConfirm: undefined,
+      ...initialModalState,
+      isOpen: true,
+      ...options,
     }),
+  close: () => set(initialModalState),
 }));

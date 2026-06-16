@@ -15,7 +15,7 @@ export const EmailLoginPage = () => {
         <EmailLoginForm />
 
         <Link
-          to='/password/reset'
+          to='/auth/password/reset'
           className='text-app-text-muted self-center text-sm font-medium hover:underline'
         >
           {t('auth.forgotPassword')}

@@ -1,8 +1,11 @@
-interface ModalState {
+export type ModalConfirmVariant = 'primary' | 'danger';
+
+export interface ModalState {
   isOpen: boolean;
   title: string;
   description?: string;
   confirmText?: string;
+  confirmVariant?: ModalConfirmVariant;
   onConfirm?: () => void;
 }
 

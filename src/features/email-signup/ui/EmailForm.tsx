@@ -1,11 +1,14 @@
 import { useState } from 'react';
 
-import { Button, Field, Input } from '../../../shared/ui';
+import { useTranslation } from '@shared/lib/i18n';
+import { Button, EmailInput, Field } from '@shared/ui';
 
 import { useSignupStore } from '../model/store';
 import { useSendEmail } from '../model/useSendEmail';
 
 export const EmailForm = () => {
+  const { t } = useTranslation();
+
   const { setStep, setEmail } = useSignupStore();
 
   const { mutate: sendEmail, isPending, error, reset } = useSendEmail();
@@ -35,20 +38,19 @@ export const EmailForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
-      <Field label='이메일' htmlFor='signup-email' errorMessage={error?.message}>
-        <Input
-          type='email'
+      <Field label={t('auth.email')} htmlFor='signup-email' errorMessage={error?.message}>
+        <EmailInput
           id='signup-email'
           name='email'
           value={form.email}
-          placeholder='이메일을 입력해 주세요.'
+          placeholder={t('auth.emailPlaceholder')}
           clearable
           onChange={handleChange}
         />
       </Field>
 
       <Button type='submit' disabled={!form.email} loading={isPending}>
-        인증번호 전송
+        {t('auth.sendCode')}
       </Button>
     </form>
   );
